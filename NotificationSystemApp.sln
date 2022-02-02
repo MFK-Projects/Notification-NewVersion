@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E1137D1B-AACB-4553-B8E1-863CB3D2C029}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFKianNotificationApi", "MFKianNotificationApi\MFKianNotificationApi.csproj", "{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationUI", "NotificationUI\NotificationUI.csproj", "{3F3013BD-73E7-4376-AC20-6754915D4342}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3013BD-73E7-4376-AC20-6754915D4342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3013BD-73E7-4376-AC20-6754915D4342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3013BD-73E7-4376-AC20-6754915D4342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3013BD-73E7-4376-AC20-6754915D4342}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE} = {E1137D1B-AACB-4553-B8E1-863CB3D2C029}
+		{3F3013BD-73E7-4376-AC20-6754915D4342} = {E1137D1B-AACB-4553-B8E1-863CB3D2C029}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC896709-64AC-4DC9-9953-D996DAD90A9D}
+	EndGlobalSection
+EndGlobal

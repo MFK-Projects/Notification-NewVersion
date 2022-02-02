@@ -1,0 +1,12 @@
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.csproj.AssemblyReference.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfoInputs.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfo.cs
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.csproj.CoreCompileInputs.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.deps.json
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\ref\MFKianNotificationApi.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.pdb
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\ref\MFKianNotificationApi.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.pdb

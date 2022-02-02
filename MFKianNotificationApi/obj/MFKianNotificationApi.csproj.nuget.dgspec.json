@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {}
+  },
+  "projects": {
+    "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "projectName": "MFKianNotificationApi",
+        "projectPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "packagesPath": "C:\\Users\\Amir_\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Amir_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows10.0.17763"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows10.0.17763": {
+            "targetAlias": "net5.0-windows10.0.17763.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows10.0.17763": {
+          "targetAlias": "net5.0-windows10.0.17763.0",
+          "dependencies": {
+            "Microsoft.Toolkit.Uwp.Notifications": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.DirectoryServices.AccountManagement": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.17763.22, 10.0.17763.22]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Windows.SDK.NET.Ref": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

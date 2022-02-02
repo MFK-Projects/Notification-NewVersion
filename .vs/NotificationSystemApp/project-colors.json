@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "89242329-8c75-41f3-9994-d340baa32f9a": {
+      "ProjectGuid": "89242329-8c75-41f3-9994-d340baa32f9a",
+      "DisplayName": "WindowsNotificationApi",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "eaef0785-54f9-4368-8b32-6a19eef8996b": {
+      "ProjectGuid": "eaef0785-54f9-4368-8b32-6a19eef8996b",
+      "DisplayName": "NotificationManagement.cs",
+      "ColorIndex": 1
+    },
+    "2b8c7b30-5e6f-4484-9a71-8822c8c5cace": {
+      "ProjectGuid": "2b8c7b30-5e6f-4484-9a71-8822c8c5cace",
+      "DisplayName": "MFKianNotificationApi",
+      "ColorIndex": 2
+    },
+    "0bf410b6-3650-4cce-ae5c-9b9900e34dc6": {
+      "ProjectGuid": "0bf410b6-3650-4cce-ae5c-9b9900e34dc6",
+      "DisplayName": "NotificationMahdeFoolad",
+      "ColorIndex": 3
+    },
+    "3f3013bd-73e7-4376-ac20-6754915d4342": {
+      "ProjectGuid": "3f3013bd-73e7-4376-ac20-6754915d4342",
+      "DisplayName": "NotificationUI",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

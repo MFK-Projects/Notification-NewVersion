@@ -1,0 +1,16 @@
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.exe
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.deps.json
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.runtimeconfig.json
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.runtimeconfig.dev.json
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\ref\NotificationUI.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\bin\Debug\net5.0\NotificationUI.pdb
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.csproj.AssemblyReference.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.AssemblyInfoInputs.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.AssemblyInfo.cs
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.csproj.CoreCompileInputs.cache
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\ref\NotificationUI.dll
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.pdb
+F:\Projects\FinialProjectNotitfication\NotificationSystemApp\NotificationUI\obj\Debug\net5.0\NotificationUI.genruntimeconfig.cache
