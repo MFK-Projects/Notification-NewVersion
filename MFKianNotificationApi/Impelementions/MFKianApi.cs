@@ -50,8 +50,8 @@ namespace MFKianNotificationApi.Impelementions
             {
                 var url = UrlBuilder(model.RequestDataModel);
 
-                var _stringData = SendHttpRequest(model.CredentialModel,url);
-                var  formatedData= JsonConvert.DeserializeObject<RootModel<UserModel>>(_stringData);
+                var _stringData = SendHttpRequest(model.CredentialModel, url);
+                var formatedData = JsonConvert.DeserializeObject<RootModel<UserModel>>(_stringData);
 
 
                 return formatedData;
@@ -67,10 +67,10 @@ namespace MFKianNotificationApi.Impelementions
             try
             {
 
-              var url = UrlBuilder(model.RequestDataModel);
+                var url = UrlBuilder(model.RequestDataModel);
 
 
-                var _stringData = SendHttpRequest(model.CredentialModel,url);
+                var _stringData = SendHttpRequest(model.CredentialModel, url);
 
                 var formatedData = JsonConvert.DeserializeObject<RootModel<TasksModel>>(_stringData);
 
@@ -89,7 +89,7 @@ namespace MFKianNotificationApi.Impelementions
                 return string.Empty;
 
 
-            var url = model.BaseUrl + model.Url;
+            var url = model.BaseUrl + model.Url + model.EnttiyName;
 
 
             if (model.SelectItem.Length > 0)

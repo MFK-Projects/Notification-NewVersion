@@ -1,0 +1,11 @@
+2022-02-05 09:10:56.576 +03:30 [INF] Logger Set Serilog Library Used For Loggin.
+2022-02-05 09:10:57.908 +03:30 [INF] Curent User retiver form the Active Directory 
+2022-02-05 09:11:00.537 +03:30 [INF] services variable is created  from ServiceCollection.
+2022-02-05 09:11:01.196 +03:30 [INF] mfkianApi Created For this Application
+2022-02-05 09:11:02.278 +03:30 [INF] While Loop Is Being Start.
+2022-02-05 09:13:53.895 +03:30 [INF] user information was got from the crm api
+2022-02-05 09:13:58.778 +03:30 [INF] user information was got from the crm api
+2022-02-05 09:14:00.580 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-05 09:14:00.580 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-05 09:14:00.580 +03:30 [INF] --------------------------------------------------------------------------------------------------- end of application logic

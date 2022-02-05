@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj": {}
+    "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
+    "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "projectUniqueName": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
         "projectName": "MFKianNotificationApi",
-        "projectPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
-        "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\obj\\",
+        "projectPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "packagesPath": "C:\\Users\\r.khaleghi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a.moradi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\r.khaleghi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,17 +81,17 @@
         }
       }
     },
-    "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj": {
+    "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
+        "projectUniqueName": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
         "projectName": "NotificationUI",
-        "projectPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
-        "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\obj\\",
+        "projectPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
+        "packagesPath": "C:\\Users\\r.khaleghi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\NotificationUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a.moradi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\r.khaleghi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,8 +105,8 @@
           "net5.0-windows10.0.17763": {
             "targetAlias": "net5.0-windows10.0.17763.0",
             "projectReferences": {
-              "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
-                "projectPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj"
+              "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
+                "projectPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj"
               }
             }
           }
@@ -149,6 +149,10 @@
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.13, 5.0.13]"
+            },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.17763.22, 10.0.17763.22]"

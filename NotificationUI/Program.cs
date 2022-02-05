@@ -11,6 +11,7 @@ using MFKianNotificationApi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace NotificationUI
 {
@@ -20,7 +21,7 @@ namespace NotificationUI
         private static long WhileCount = default;
         private static string curentUser = default;
         private static IEnumerable<TasksModel> userTasks;
-        private static long errorCount = default;
+        private static long errorCount = 0;
         private static double timerWaite = 30;
         #endregion
 
@@ -71,7 +72,10 @@ namespace NotificationUI
             logger.Information("While Loop Is Being Start.");
 
 
-            while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500); }
+            while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500);}
+
+            curentUser = CreateUserDomain(curentUser);
+            
             #endregion
 
             try
@@ -106,10 +110,11 @@ namespace NotificationUI
                         {
                             RequestDataModel = new MFKianNotificationApi.Models.RequestDataModel
                             {
+                                
                                 BaseUrl = @"http://80.210.26.4:8585/MFKIAN/api/data/v9.0/",
                                 Count = 3,
                                 EnttiyName = "systemusers",
-                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "domainname", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.Content, Value = curentUser } },
+                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "domainname", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.Content, Value =  curentUser} },
                                 SelectItem = new string[] { "domainname", "identityid", "fullname" }
                             },
 
@@ -120,6 +125,9 @@ namespace NotificationUI
                                 UserName = "a.moradi"
                             }
                         });
+
+                        var usermodel = userdata.Value.FirstOrDefault();
+
                         logger.Information("user information was got from the crm api");
 
                         var tasksdata = mfkianApi.GetUserTasks(new RequestModel
@@ -130,7 +138,7 @@ namespace NotificationUI
                                 BaseUrl = @"http://80.210.26.4:8585/MFKIAN/api/data/v9.0/",
                                 Count = 3,
                                 EnttiyName = "tasks",
-                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "_ownerid_value", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire, Value = curentUser } },
+                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "_ownerid_value", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire, Value = usermodel.Ownerid } },
                                 SelectItem = new string[] { "subject", "prioritycode", "new_task_status", "new_task_type", "_ownerid_value", "new_remained_time_hour", "new_remaining_days" }
                             }
                         });
@@ -148,13 +156,13 @@ namespace NotificationUI
 
                     #region Waiting for Duration
                     logger.Information("Application Waited will Waited 30 min One Hour.");
-                    Thread.Sleep(TimeSpan.FromMinutes(30));
+                  //  Thread.Sleep(TimeSpan.FromMinutes(1));
                     logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                     logger.Information("--------------------------------------------------------------------------------------------------- end of application logic");
                     #endregion
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 logger.Error($"erro ouccered :{ex.Message} \n inner exception : {ex.InnerException.Message ?? "no inner exception"}");
             }
@@ -191,7 +199,7 @@ namespace NotificationUI
         /// <returns></returns>
         private static string GetCurentUserName()
         {
-            return System.DirectoryServices.AccountManagement.UserPrincipal.Current.Name;
+            return System.DirectoryServices.AccountManagement.UserPrincipal.Current.UserPrincipalName;
         }
 
 
@@ -200,8 +208,10 @@ namespace NotificationUI
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private static IEnumerable<TasksModel> CheckTaskStates(List<TasksModel> model)
+        private static List<TasksModel> CheckTaskStates(List<TasksModel> model)
         {
+
+            var list = new List<TasksModel>();
             if (model.Count > 0)
             {
                 foreach (var task in model)
@@ -212,11 +222,14 @@ namespace NotificationUI
                         //cheking for the task that remaingin just one day
                         if (task.new_remaining_days > 0 && task.new_remaining_days < 2)
                         {
-                            yield return task;
+                            list.Add(task);
                         }
                     }
                 }
             }
+
+
+            return list;
 
         }
 
@@ -260,6 +273,12 @@ namespace NotificationUI
 
             Console.WriteLine("Set the Time duration for application waiting exm:30 in minute");
             timerWaite = Convert.ToDouble(Console.ReadLine());
+        }
+
+        public static string CreateUserDomain(string name)
+        {
+            var temp = name.Split("@");
+           return  @"KIAN\"+temp[0];
         }
     }
 }

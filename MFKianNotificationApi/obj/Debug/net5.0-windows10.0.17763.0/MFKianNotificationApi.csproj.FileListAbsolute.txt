@@ -22,3 +22,15 @@ D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windo
 D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.dll
 D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\ref\MFKianNotificationApi.dll
 D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.pdb
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.deps.json
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.dll
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\ref\MFKianNotificationApi.dll
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\bin\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.pdb
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.csproj.AssemblyReference.cache
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfoInputs.cache
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfo.cs
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.csproj.CoreCompileInputs.cache
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.dll
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\ref\MFKianNotificationApi.dll
+C:\Users\r.khaleghi\Source\Repos\Notification-NewVersion\MFKianNotificationApi\obj\Debug\net5.0-windows10.0.17763.0\MFKianNotificationApi.pdb
