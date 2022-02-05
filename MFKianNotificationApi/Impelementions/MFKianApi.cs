@@ -295,7 +295,7 @@ namespace MFKianNotificationApi.Impelementions
             if (filter.Length == 0)
                 return true;
 
-            for (int i = 0; i < filer.Length; i++)
+            for (int i = 0; i < filter.Length; i++)
                 if (filter[i] == taskStatus)
                     return true;
 

@@ -21,8 +21,9 @@ namespace NotificationUI
         private static long WhileCount = default;
         private static string curentUser = default;
         private static IEnumerable<TasksModel> userTasks;
-        private static IntPtr _curentWindow = 0;
+        private static IntPtr _curentWindow = IntPtr.Zero;
         private static int _hideWindow = 1;
+        private static bool _firstLantch = false;
         #endregion
 
         #region Hide the console application 
