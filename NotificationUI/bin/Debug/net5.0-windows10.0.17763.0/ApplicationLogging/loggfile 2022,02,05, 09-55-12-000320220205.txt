@@ -1,7 +1,0 @@
-2022-02-05 09:55:12.087 +03:30 [INF] Logger Set Serilog Library Used For Loggin.
-2022-02-05 09:55:12.167 +03:30 [INF] Curent User retiver form the Active Directory 
-2022-02-05 09:55:12.233 +03:30 [INF] services variable is created  from ServiceCollection.
-2022-02-05 09:55:12.233 +03:30 [INF] mfkianApi Created For this Application
-2022-02-05 09:55:12.305 +03:30 [INF] While Loop Is Being Start.
-2022-02-05 09:55:28.746 +03:30 [INF] user information was got from the crm api
-2022-02-05 09:55:32.817 +03:30 [INF] user information was got from the crm api

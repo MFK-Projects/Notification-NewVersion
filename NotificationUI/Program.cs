@@ -21,8 +21,6 @@ namespace NotificationUI
         private static long WhileCount = default;
         private static string curentUser = default;
         private static IEnumerable<TasksModel> userTasks;
-        private static long errorCount = 0;
-        private static double timerWaite = 30;
         #endregion
 
         #region Hide the console application 
@@ -72,10 +70,10 @@ namespace NotificationUI
             logger.Information("While Loop Is Being Start.");
 
 
-            while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500);}
+            while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500); }
 
             curentUser = CreateUserDomain(curentUser);
-            
+
             #endregion
 
             try
@@ -101,71 +99,88 @@ namespace NotificationUI
                     if (mfkianApi == null)
                         mfkianApi = services.GetService<IMFKianApi>();
 
+                    if (mfkianApi.ApplicationSetting == null)
+                    {
+                        mfkianApi.SetApiSetting(new AppModel
+                        {
+                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                            TimeAwaite = 30,
+                            BaseUrl = @"http://crm-srv:8585/MFkian/api/data/v9.0/",
+                            NotificationReqularMessage = "مدت زمان انجام این تشک"
+                        });
+                    }
+
                     #endregion
 
                     #region Get UserTask for Notification
                     if (userTasks == null)
                     {
-                        var userdata = mfkianApi.GetUserData(new MFKianNotificationApi.Models.RequestModel
+                        var curentuser = mfkianApi.GetSingleRow(new RequestModel
                         {
-                            RequestDataModel = new MFKianNotificationApi.Models.RequestDataModel
-                            {
-                                
-                                BaseUrl = @"http://80.210.26.4:8585/MFKIAN/api/data/v9.0/",
-                                Count = 3,
-                                EnttiyName = "systemusers",
-                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "domainname", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.Content, Value =  curentUser} },
-                                SelectItem = new string[] { "domainname", "identityid", "fullname" }
-                            },
-
-                            CredentialModel = new CredentialModel
-                            {
-                                Domain = "KIAN",
-                                Password = "r",
-                                UserName = "a.moradi"
-                            }
-                        });
-
-                        var usermodel = userdata.Value.FirstOrDefault();
-
-                        logger.Information("user information was got from the crm api");
-
-                        var tasksdata = mfkianApi.GetUserTasks(new RequestModel
-                        {
-                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                            CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
                             RequestDataModel = new RequestDataModel
                             {
-                                BaseUrl = @"http://80.210.26.4:8585/MFKIAN/api/data/v9.0/",
+                                BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
                                 Count = 3,
+                                EnttiyName = "systemusers",
+                                Filters = new List<FilterDataModel>
+                                {
+                                    new FilterDataModel
+                                    {
+                                        Item = "domainname",
+                                        Key = "eq",
+                                        Type = MFKianNotificationApi.Enums.RequestDataFilterType.Content,
+                                        Value = curentUser
+                                    }
+                                },
+                                SelectItem = new string[] { "fullname", "domainname", "identityid", "systemuserid" }
+                            }
+                        }).FirstOrDefault();
+
+                        userTasks = mfkianApi.GetMultipuleRows(new RequestModel
+                        {
+                            CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
+                            RequestDataModel = new RequestDataModel
+                            {
+                                BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
                                 EnttiyName = "tasks",
-                                Filters = new List<FilterDataModel> { new FilterDataModel { Item = "_ownerid_value", Key = "eq", Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire, Value = usermodel.Ownerid } },
-                                SelectItem = new string[] { "subject", "prioritycode", "new_task_status", "new_task_type", "_ownerid_value", "new_remained_time_hour", "new_remaining_days" }
+                                Filters = new List<FilterDataModel> { new FilterDataModel {
+                                    Item = "_ownerid_value",
+                                    Key = "eq",
+                                    Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire,
+                                    Value = curentuser.Ownerid
+                                }},
+                                SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status" , "new_task_type" }
                             }
                         });
 
                         logger.Information("user information was got from the crm api");
-
-                        //  userTasks = CheckTaskStates(tasksdata.Value);
-                        userTasks = tasksdata.Value.ToList();
                     }
                     #endregion
 
 
                     #region SendNotification Section
-                    SendFilteredNotification(userTasks, mfkianApi);
+                    mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
+                    {
+                        DayCheck = 3,
+                        HourCheck = 2,
+                        NTasksStatus = new long[] { 100_000_005, 100_000_003 },
+                        TaskType = default,
+                    });
                     #endregion
 
                     #region Waiting for Duration
                     logger.Information("Application Waited will Waited 30 min One Hour.");
                     Thread.Sleep(TimeSpan.FromMinutes(1));
                     logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
-                    logger.Information("--------------------------------------------------------------------------------------------------- end of application logic");
+                    logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
                     #endregion
                 }
+
             }
             catch (Exception ex)
             {
-                logger.Error($"erro ouccered :{ex.Message} \n inner exception : {ex.InnerException.Message ?? "no inner exception"}");
+                logger.Error($"erro ouccered :{ex?.Message} \n inner exception : {ex?.InnerException?.Message ?? "no inner exception"}");
             }
 
         }
@@ -204,92 +219,11 @@ namespace NotificationUI
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        private static List<TasksModel> CheckTaskStates(List<TasksModel> model)
-        {
-
-            var list = new List<TasksModel>();
-            if (model.Count > 0)
-            {
-                foreach (var task in model)
-                {
-                    //Checking for the Expired and Done tasks
-                    if (task.new_task_status != 100_000_005 || task.new_task_status != 100_000_003)
-                    {
-                        //cheking for the task that remaingin just one day
-                        if (task.new_remaining_days > 0 && task.new_remaining_days < 2)
-                        {
-                            list.Add(task);
-                        }
-                    }
-                }
-            }
-
-
-            return list;
-
-        }
-
-
-        /// <summary>
-        /// show notification in woindows 
-        /// </summary>
-        /// <param name="tasks"></param>
-        private static void SendFilteredNotification(IEnumerable<TasksModel> tasks, IMFKianApi mfkianapi)
-        {
-            foreach (var task in tasks)
-            {
-                if (task.RemainingTime.HasValue)
-                {
-
-                    var time = task.RemainingTime.Value - DateTime.Now;
-
-                    //if (time.TotalHours < 2)
-                    //{
-                    //    mfkianapi.SendNotification(new NotificationSettingModel
-                    //    {
-                    //        Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
-                    //        Titel = task.new_task_type.ToString(),
-                    //        ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
-                    //        ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
-                    //        Url = "http://80.210.26.4:8585/MFKian",
-                    //        Button = null
-                    //    });
-                    //}
-
-                    mfkianapi.SendNotification(new NotificationSettingModel
-                    {
-                        Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
-                        Titel = task.new_task_type.ToString(),
-                        ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
-                        ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
-                        Url = "http://80.210.26.4:8585/MFKian",
-                        Button = null
-                    });
-                }
-            }
-        }
-
-
-        private static void SetApplicationSetting(double WaitedMinut)
-        {
-
-            Console.WriteLine("Application Started!");
-
-            ///******************************************************************************************///
-
-            Console.WriteLine("Set the Time duration for application waiting exm:30 in minute");
-            timerWaite = Convert.ToDouble(Console.ReadLine());
-        }
 
         public static string CreateUserDomain(string name)
         {
             var temp = name.Split("@");
-           return  @"KIAN\"+temp[0];
+            return @"KIAN\" + temp[0];
         }
     }
 }

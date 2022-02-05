@@ -1,0 +1,5 @@
+D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\netstandard2.0-windows10.0.17763.0\MFKianNotificationApi.csproj.AssemblyReference.cache
+D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\netstandard2.0-windows10.0.17763.0\MFKianNotificationApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\netstandard2.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfoInputs.cache
+D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\netstandard2.0-windows10.0.17763.0\MFKianNotificationApi.AssemblyInfo.cs
+D:\Projects\Notification-NewVersion\MFKianNotificationApi\obj\Debug\netstandard2.0-windows10.0.17763.0\MFKianNotificationApi.csproj.CoreCompileInputs.cache

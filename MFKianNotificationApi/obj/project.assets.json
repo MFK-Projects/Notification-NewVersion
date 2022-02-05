@@ -976,19 +976,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\r.khaleghi\\.nuget\\packages\\": {}
+    "C:\\Users\\a.moradi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+      "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
       "projectName": "MFKianNotificationApi",
-      "projectPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
-      "packagesPath": "C:\\Users\\r.khaleghi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\r.khaleghi\\Source\\Repos\\Notification-NewVersion\\MFKianNotificationApi\\obj\\",
+      "projectPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+      "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\r.khaleghi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\a.moradi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

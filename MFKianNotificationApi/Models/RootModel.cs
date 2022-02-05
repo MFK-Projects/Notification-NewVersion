@@ -22,22 +22,22 @@ namespace MFKianNotificationApi.Models
     }
     public class TasksModel
     {
-        public string subject { get; set; }
-        public int prioritycode { get; set; }
-        public int new_task_status { get; set; }
-        public int new_task_type { get; set; }
-        public string _ownerid_value { get; set; }
-        public int new_remained_time_hour { get; set; }
-        public int new_remaining_days { get; set; }
-        public string activityid { get; set; }
+        public string Subject { get; set; }
+        public int Prioritycode { get; set; }
+        public long New_task_status { get; set; }
+        public long New_task_type { get; set; }
+        public string _Ownerid_value { get; set; }
+        public int New_remained_time_hour { get; set; }
+        public int New_remaining_days { get; set; }
+        public string Activityid { get; set; }
 
         [JsonIgnore]
         public DateTime? RemainingTime
         {
             get
             {
-                if (new_remained_time_hour > 0)
-                    return DateTime.Now.AddHours(new_remained_time_hour);
+                if (New_remained_time_hour > 0)
+                    return DateTime.Now.AddHours(New_remained_time_hour);
                 else
                     return null ;
             }

@@ -9,9 +9,10 @@ namespace MFKianNotificationApi.Interfaces
 {
     public interface IMFKianApi
     {
-        Task<int> SendNotification(NotificationSettingModel setting);
-        void SetApplicationSetting();
-        RootModel<UserModel> GetUserData(RequestModel model);
-        RootModel<TasksModel> GetUserTasks(RequestModel model);
+        AppModel ApplicationSetting { get; }
+        Task SendNotification(List<TasksModel> dataModel, NotificationFilterModel filterModel);
+        bool SetApiSetting(AppModel appModel);
+        List<UserModel> GetSingleRow(RequestModel model);
+        List<TasksModel> GetMultipuleRows(RequestModel model);
     }
 }
