@@ -133,6 +133,13 @@ namespace MFKianNotificationApi.Impelementions
 
         #region Private Methods
 
+        /// <summary>
+        /// Send Http Request to an Server for getting Api Setting..
+        /// </summary>
+        private void GetApiSetting()
+        {
+           
+        }
 
         /// <summary>
         ///Create Url for Sending http Request

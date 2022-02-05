@@ -13,6 +13,7 @@ namespace MFKianNotificationApi.Interfaces
         Task SendNotification(List<TasksModel> dataModel, NotificationFilterModel filterModel);
         bool SetApiSetting(AppModel appModel);
         List<UserModel> GetSingleRow(RequestModel model);
+        void SendWellComeNotification();
         List<TasksModel> GetMultipuleRows(RequestModel model);
     }
 }

@@ -21,6 +21,8 @@ namespace NotificationUI
         private static long WhileCount = default;
         private static string curentUser = default;
         private static IEnumerable<TasksModel> userTasks;
+        private static IntPtr _curentWindow = 0;
+        private static int _hideWindow = 1;
         #endregion
 
         #region Hide the console application 
@@ -78,6 +80,8 @@ namespace NotificationUI
 
             try
             {
+                mfkianApi.SendWellComeNotification();
+
                 while (true)
                 {
                     #region Checking For Varibale Data
@@ -150,7 +154,7 @@ namespace NotificationUI
                                     Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire,
                                     Value = curentuser.Ownerid
                                 }},
-                                SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status" , "new_task_type" }
+                                SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status", "new_task_type" }
                             }
                         });
 
@@ -169,18 +173,37 @@ namespace NotificationUI
                     });
                     #endregion
 
+
                     #region Waiting for Duration
                     logger.Information("Application Waited will Waited 30 min One Hour.");
                     Thread.Sleep(TimeSpan.FromMinutes(1));
                     logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                     logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
                     #endregion
+
+
+                    #region Hide the console Application
+
+                    if (_hideWindow == 1)
+                    {
+                        _curentWindow = GetConsoleWindow();
+                        ShowWindow(_curentWindow, 0);
+                    }
+
+                    #endregion
+
                 }
 
             }
             catch (Exception ex)
             {
+                if (_hideWindow == 0)
+                {
+                    _curentWindow = GetConsoleWindow();
+                    ShowWindow(_curentWindow, 1);
+                }
                 logger.Error($"erro ouccered :{ex?.Message} \n inner exception : {ex?.InnerException?.Message ?? "no inner exception"}");
+                Console.WriteLine(ex.Message);
             }
 
         }
