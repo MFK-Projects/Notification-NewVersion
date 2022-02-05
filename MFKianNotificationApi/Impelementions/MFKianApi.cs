@@ -270,31 +270,47 @@ namespace MFKianNotificationApi.Impelementions
         {
             foreach (var item in dataModel)
             {
-                for (int i = 0; i < filterModel.NTasksStatus.Length; i++)
-                {
-                    if (item.New_task_status == filterModel.NTasksStatus[i])
-                        break;
-                    else
-                    {
-                        yield return default;
-                    }
-                }
-
-                for (int j = 0; j < filterModel.TaskType.Length; j++)
-                {
-                    if (item.New_task_type == filterModel.TaskType[j])
-                        break;
-                    else
-                    {
-                        yield return default;
-                    }
-                }
-
-
+                if(CheckNtaskStatus(item.New_task_status,filterModel.NTasksStatus) && CheckTaskType(item.New_task_type,filterModel.TaskType))
                 if (item.New_remaining_days <= filterModel.DayCheck)
                     if (item.New_remained_time_hour <= filterModel.HourCheck)
                         yield return item;
             }
+        }
+
+        /// <summary>
+        /// Checking For the TaskStatue
+        /// </summary>
+        /// <param name="taskStatus"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        private bool CheckNtaskStatus(long taskStatus, long[] filter)
+        {
+            if (filter.Length == 0)
+                return true;
+
+            for (int i = 0; i < filer.Length; i++)
+                if (filter[i] == taskStatus)
+                    return true;
+
+            return false;
+        }
+
+
+        /// <summary>
+        /// Checking For the TaskTye
+        /// </summary>
+        /// <param name="taskStatus"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        private bool CheckTaskType(long taskType,long[] filter)
+        {
+            if(filter.Length == 0) return true;
+
+            for (int i = 0; i < filter.Length; i++)
+                if (filter[i] == taskType)
+                    return true;
+
+            return false;
         }
         #endregion
     }
