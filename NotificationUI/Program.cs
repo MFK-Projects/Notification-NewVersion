@@ -23,7 +23,7 @@ namespace NotificationUI
         private static IEnumerable<TasksModel> userTasks;
         private static IntPtr _curentWindow = IntPtr.Zero;
         private static int _hideWindow = 1;
-        private static bool _firstLantch = false;
+        private static bool _firstLantch = true;
         #endregion
 
         #region Hide the console application 
@@ -39,8 +39,9 @@ namespace NotificationUI
         static void Main(string[] args)
         {
 
-
-            #region Initial Program Requriemnt 
+            Console.WriteLine("Application is started!..");
+            Console.WriteLine("Initializing the Requirement");
+            #region Initial Program Requirement 
 
             var logger = new LoggerConfiguration()
               .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
@@ -73,15 +74,33 @@ namespace NotificationUI
             logger.Information("While Loop Is Being Start.");
 
 
-            while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500); }
+            while (string.IsNullOrEmpty(curentUser))
+            {
+                var wileCount = 0;
+                Thread.Sleep(1500);
+                WhileCount += 1;
+
+                if (wileCount > 10)
+                {
+                    Console.WriteLine("You Stuck in the Geting UserNameWhile And Application Will be ShutDown..");
+                    Environment.Exit(0);
+                }
+            }
 
             curentUser = CreateUserDomain(curentUser);
 
+            Console.WriteLine("Application Successfuly Initialized the Requirement!");
             #endregion
 
             try
             {
-                mfkianApi.SendWellComeNotification();
+                if (_firstLantch == true)
+                {
+                    Console.WriteLine("Well Come Notification going to be send");
+                    mfkianApi.SendWellComeNotification();
+                    _firstLantch = false;
+                    Console.WriteLine("WellCome Notification Sent");
+                }
 
                 while (true)
                 {
