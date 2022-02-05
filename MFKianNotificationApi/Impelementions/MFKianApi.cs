@@ -125,9 +125,10 @@ namespace MFKianNotificationApi.Impelementions
                 foreach (var item in setting.Text)
                     toast.AddText(item + System.Environment.NewLine);
 
-            if (setting.Button.Count > 0)
-                foreach (var button in setting.Button)
-                    toast.AddButton(button);
+            if (setting.Button != null)
+                if (setting.Button.Count > 0)
+                    foreach (var button in setting.Button)
+                        toast.AddButton(button);
 
             if (!string.IsNullOrEmpty(setting.Url))
                 toast.SetProtocolActivation(new System.Uri(setting.Url));

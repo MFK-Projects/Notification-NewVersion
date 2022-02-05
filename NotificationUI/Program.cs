@@ -145,7 +145,8 @@ namespace NotificationUI
 
                         logger.Information("user information was got from the crm api");
 
-                        userTasks = CheckTaskStates(tasksdata.Value);
+                        //  userTasks = CheckTaskStates(tasksdata.Value);
+                        userTasks = tasksdata.Value.ToList();
                     }
                     #endregion
 
@@ -156,7 +157,7 @@ namespace NotificationUI
 
                     #region Waiting for Duration
                     logger.Information("Application Waited will Waited 30 min One Hour.");
-                  //  Thread.Sleep(TimeSpan.FromMinutes(1));
+                    Thread.Sleep(TimeSpan.FromMinutes(1));
                     logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                     logger.Information("--------------------------------------------------------------------------------------------------- end of application logic");
                     #endregion
@@ -247,18 +248,28 @@ namespace NotificationUI
 
                     var time = task.RemainingTime.Value - DateTime.Now;
 
-                    if (time.TotalHours < 2)
+                    //if (time.TotalHours < 2)
+                    //{
+                    //    mfkianapi.SendNotification(new NotificationSettingModel
+                    //    {
+                    //        Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
+                    //        Titel = task.new_task_type.ToString(),
+                    //        ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
+                    //        ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
+                    //        Url = "http://80.210.26.4:8585/MFKian",
+                    //        Button = null
+                    //    });
+                    //}
+
+                    mfkianapi.SendNotification(new NotificationSettingModel
                     {
-                        mfkianapi.SendNotification(new NotificationSettingModel
-                        {
-                            Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
-                            Titel = task.new_task_type.ToString(),
-                            ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
-                            ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
-                            Url = "http://80.210.26.4:8585/MFKian",
-                            Button = null
-                        });
-                    }
+                        Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
+                        Titel = task.new_task_type.ToString(),
+                        ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
+                        ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
+                        Url = "http://80.210.26.4:8585/MFKian",
+                        Button = null
+                    });
                 }
             }
         }
