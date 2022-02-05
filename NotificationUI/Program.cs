@@ -10,25 +10,35 @@ using Serilog.Core;
 using MFKianNotificationApi.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace NotificationUI
 {
     internal class Program
     {
-
+        #region Decare the Variables
         private static long WhileCount = default;
         private static string curentUser = default;
         private static IEnumerable<TasksModel> userTasks;
         private static long errorCount = default;
+        private static double timerWaite = 30;
+        #endregion
+
+        #region Hide the console application 
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        #endregion
+
+
         static void Main(string[] args)
         {
 
+
             #region Initial Program Requriemnt 
-
-
-
-
-
 
             var logger = new LoggerConfiguration()
               .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
@@ -64,11 +74,10 @@ namespace NotificationUI
             while (string.IsNullOrEmpty(curentUser)) { Thread.Sleep(1500); }
             #endregion
 
-            while (true)
+            try
             {
-                try
+                while (true)
                 {
-
                     #region Checking For Varibale Data
 
                     if (logger == null)
@@ -110,7 +119,7 @@ namespace NotificationUI
                                 Password = "r",
                                 UserName = "a.moradi"
                             }
-                        }) ;
+                        });
                         logger.Information("user information was got from the crm api");
 
                         var tasksdata = mfkianApi.GetUserTasks(new RequestModel
@@ -137,17 +146,17 @@ namespace NotificationUI
                     SendFilteredNotification(userTasks, mfkianApi);
                     #endregion
 
-                    #region Waiting for Durection
+                    #region Waiting for Duration
                     logger.Information("Application Waited will Waited 30 min One Hour.");
                     Thread.Sleep(TimeSpan.FromMinutes(30));
                     logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                     logger.Information("--------------------------------------------------------------------------------------------------- end of application logic");
                     #endregion
                 }
-                catch (Exception ex)
-                {
-                    logger.Error($"erro ouccered :{ex.Message} \n inner exception : {ex.InnerException.Message ?? "no inner exception"}");
-                }
+            }
+            catch (Exception)
+            {
+                logger.Error($"erro ouccered :{ex.Message} \n inner exception : {ex.InnerException.Message ?? "no inner exception"}");
             }
 
         }
@@ -157,7 +166,7 @@ namespace NotificationUI
         /// <summary>
         /// Create Log file In ApplicationLoggin Direcotroy in bin folder with loggfile 2020,10,20, 10-40-40-4562.text format
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Log File Name</returns>
         private static string CreateLogFile()
         {
             string directoryPath = Environment.CurrentDirectory + @"\ApplicationLogging";
@@ -216,7 +225,7 @@ namespace NotificationUI
         /// show notification in woindows 
         /// </summary>
         /// <param name="tasks"></param>
-        private static void SendFilteredNotification(IEnumerable<TasksModel> tasks,IMFKianApi mfkianapi)
+        private static void SendFilteredNotification(IEnumerable<TasksModel> tasks, IMFKianApi mfkianapi)
         {
             foreach (var task in tasks)
             {
@@ -224,21 +233,33 @@ namespace NotificationUI
                 {
 
                     var time = task.RemainingTime.Value - DateTime.Now;
-                    
-                    if(time.TotalHours < 2)
+
+                    if (time.TotalHours < 2)
                     {
                         mfkianapi.SendNotification(new NotificationSettingModel
                         {
-                            Text = new string[] {task.subject,$"زمان بازی باقی مانده برای اینجام این تسک {time}"},
+                            Text = new string[] { task.subject, $"زمان بازی باقی مانده برای اینجام این تسک {time}" },
                             Titel = task.new_task_type.ToString(),
                             ToastDuration = Microsoft.Toolkit.Uwp.Notifications.ToastDuration.Long,
                             ToastScenario = Microsoft.Toolkit.Uwp.Notifications.ToastScenario.Reminder,
                             Url = "http://80.210.26.4:8585/MFKian",
                             Button = null
                         });
-                    } 
+                    }
                 }
             }
+        }
+
+
+        private static void SetApplicationSetting(double WaitedMinut)
+        {
+
+            Console.WriteLine("Application Started!");
+
+            ///******************************************************************************************///
+
+            Console.WriteLine("Set the Time duration for application waiting exm:30 in minute");
+            timerWaite = Convert.ToDouble(Console.ReadLine());
         }
     }
 }
