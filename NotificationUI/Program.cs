@@ -24,6 +24,11 @@ namespace NotificationUI
         private static IntPtr _curentWindow = IntPtr.Zero;
         private static int _hideWindow = 1;
         private static bool _firstLantch = true;
+        private static System.Timers.Timer settingTimer;
+        private static System.Timers.Timer appTimer;
+        private static IMFKianApi mfkianApi;
+        private static Logger logger;
+        private static ServiceProvider services;
         #endregion
 
         #region Hide the console application 
@@ -39,40 +44,101 @@ namespace NotificationUI
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Application is started!..");
-            Console.WriteLine("Initializing the Requirement");
-            #region Initial Program Requirement 
-
-            var logger = new LoggerConfiguration()
-              .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
-              .MinimumLevel.Verbose()
-              .CreateLogger();
-
-            logger.Information("Logger Set Serilog Library Used For Loggin.");
-
-
-
             Task.Factory.StartNew(() =>
             {
                 curentUser = GetCurentUserName();
             });
 
-            logger.Information("Curent User retiver form the Active Directory ");
+            Console.WriteLine("Application is started!..");
+            Console.WriteLine("Initializing the Requirement");
+            #region Initial Program Requirement 
 
-            var services = new ServiceCollection()
-                  .AddSingleton<IMFKianApi, MFKianApi>()
-                  .BuildServiceProvider();
+
+
+            logger = new LoggerConfiguration()
+              .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
+              .MinimumLevel.Verbose()
+              .CreateLogger();
+
+
+            services = new ServiceCollection()
+                           .AddSingleton<IMFKianApi, MFKianApi>()
+                           .BuildServiceProvider();
+
+
+
+            mfkianApi = services.GetService<IMFKianApi>();
+
+
+            logger.Information("Logger Set Serilog Library Used For Loggin.");
 
             logger.Information("services variable is created  from ServiceCollection.");
 
-
-
             logger.Information("mfkianApi Created For this Application");
-            var mfkianApi = services.GetService<IMFKianApi>();
 
 
-            logger.Information("While Loop Is Being Start.");
 
+            if (mfkianApi.ApplicationSetting == null)
+            {
+                var test = mfkianApi.GetApiSetting();
+
+
+                if (test)
+                {
+                    mfkianApi.SetApiSetting(new AppModel
+                    {
+                        CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                    });
+
+                    mfkianApi.SendWellComeNotification();
+                }
+            }
+
+            #region Settign the timers for infinte interval
+
+            settingTimer = new();
+
+            //if (mfkianApi.ApplicationSetting.SettingTimer > 0)
+            //    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
+            //else
+            //    settingTimer.Interval = (15 * 60_000);
+
+            settingTimer.Interval = (60000 * 3);
+            settingTimer.AutoReset = true;
+            settingTimer.Enabled = true;
+            settingTimer.Elapsed += SettingTimer_Elapsed;
+
+            appTimer = new();
+
+            //if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
+            //    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
+            //else
+            //    appTimer.Interval = (30 * 60_000);
+
+            appTimer.Interval = (60000 * 4);
+            appTimer.AutoReset = true;
+            appTimer.Enabled = true;
+            appTimer.Elapsed += AppTimer_Elapsed;
+
+            #endregion
+
+
+            logger.Information("apptimer and setting timer is elapsed ..... sucssfuly initilazied");
+        infinte: var exitcommand = Console.ReadLine();
+
+            if (exitcommand == "ex-force")
+                Environment.Exit(0);
+            else
+                goto infinte;
+
+
+
+
+
+        }
+
+        private static void AppTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
 
             while (string.IsNullOrEmpty(curentUser))
             {
@@ -83,11 +149,18 @@ namespace NotificationUI
                 if (wileCount > 10)
                 {
                     Console.WriteLine("You Stuck in the Geting UserNameWhile And Application Will be ShutDown..");
+                    logger.Error("can not retive the user from the DirectoryApplication");
                     Environment.Exit(0);
                 }
+
             }
 
-            curentUser = CreateUserDomain(curentUser);
+
+            if (!string.IsNullOrEmpty(curentUser))
+                curentUser = CreateUserDomain(curentUser);
+
+
+
 
             Console.WriteLine("Application Successfuly Initialized the Requirement!");
             #endregion
@@ -101,53 +174,48 @@ namespace NotificationUI
                     _firstLantch = false;
                     Console.WriteLine("WellCome Notification Sent");
                 }
+                #region Checking For Varibale Data
 
-                while (true)
+                if (logger == null)
+                    logger = new LoggerConfiguration()
+                      .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
+                      .MinimumLevel.Verbose()
+                      .CreateLogger();
+
+                if (services == null)
                 {
-                    #region Checking For Varibale Data
+                    services = new ServiceCollection()
+                                 .AddSingleton<IMFKianApi, MFKianApi>()
+                                 .BuildServiceProvider();
+                    logger.Information("services created ....");
+                }
 
-                    if (logger == null)
-                        logger = new LoggerConfiguration()
-                          .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
-                          .MinimumLevel.Verbose()
-                          .CreateLogger();
+                if (mfkianApi == null)
+                    mfkianApi = services.GetService<IMFKianApi>();
 
-                    if (services == null)
+                if (mfkianApi.ApplicationSetting == null)
+                {
+                    mfkianApi.SetApiSetting(new AppModel
                     {
-                        services = new ServiceCollection()
-                                     .AddSingleton<IMFKianApi, MFKianApi>()
-                                     .BuildServiceProvider();
-                        logger.Information("services created ....");
-                    }
+                        CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                        NotificationReqularMessage = mfkianApi.ApplicationSetting.NotificationReqularMessage ?? "مدت زمان انجام این تسک برای شما رو به اتمام است"
+                    });
+                }
 
-                    if (mfkianApi == null)
-                        mfkianApi = services.GetService<IMFKianApi>();
+                #endregion
 
-                    if (mfkianApi.ApplicationSetting == null)
+                #region Get UserTask for Notification
+                if (userTasks == null)
+                {
+                    var curentuser = mfkianApi.GetSingleRow(new RequestModel
                     {
-                        mfkianApi.SetApiSetting(new AppModel
+                        CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
+                        RequestDataModel = new RequestDataModel
                         {
-                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                            TimeAwaite = 30,
-                            BaseUrl = @"http://crm-srv:8585/MFkian/api/data/v9.0/",
-                            NotificationReqularMessage = "مدت زمان انجام این تشک"
-                        });
-                    }
-
-                    #endregion
-
-                    #region Get UserTask for Notification
-                    if (userTasks == null)
-                    {
-                        var curentuser = mfkianApi.GetSingleRow(new RequestModel
-                        {
-                            CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
-                            RequestDataModel = new RequestDataModel
-                            {
-                                BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
-                                Count = 3,
-                                EnttiyName = "systemusers",
-                                Filters = new List<FilterDataModel>
+                            BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
+                            Count = 3,
+                            EnttiyName = "systemusers",
+                            Filters = new List<FilterDataModel>
                                 {
                                     new FilterDataModel
                                     {
@@ -157,62 +225,60 @@ namespace NotificationUI
                                         Value = curentUser
                                     }
                                 },
-                                SelectItem = new string[] { "fullname", "domainname", "identityid", "systemuserid" }
-                            }
-                        }).FirstOrDefault();
+                            SelectItem = new string[] { "fullname", "domainname", "identityid", "systemuserid" }
+                        }
+                    }).FirstOrDefault();
 
-                        userTasks = mfkianApi.GetMultipuleRows(new RequestModel
+                    userTasks = mfkianApi.GetMultipuleRows(new RequestModel
+                    {
+                        CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
+                        RequestDataModel = new RequestDataModel
                         {
-                            CredentialModel = mfkianApi.ApplicationSetting.CredentialModel,
-                            RequestDataModel = new RequestDataModel
-                            {
-                                BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
-                                EnttiyName = "tasks",
-                                Filters = new List<FilterDataModel> { new FilterDataModel {
+                            BaseUrl = mfkianApi.ApplicationSetting.BaseUrl,
+                            EnttiyName = "tasks",
+                            Filters = new List<FilterDataModel> { new FilterDataModel {
                                     Item = "_ownerid_value",
                                     Key = "eq",
                                     Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire,
                                     Value = curentuser.Ownerid
                                 }},
-                                SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status", "new_task_type" }
-                            }
-                        });
-
-                        logger.Information("user information was got from the crm api");
-                    }
-                    #endregion
-
-
-                    #region SendNotification Section
-                    mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
-                    {
-                        DayCheck = 3,
-                        HourCheck = 2,
-                        NTasksStatus = new long[] { 100_000_005, 100_000_003 },
-                        TaskType = default,
+                            SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status", "new_task_type" }
+                        }
                     });
-                    #endregion
 
-
-                    #region Waiting for Duration
-                    logger.Information("Application Waited will Waited 30 min One Hour.");
-                    Thread.Sleep(TimeSpan.FromMinutes(1));
-                    logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
-                    logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
-                    #endregion
-
-
-                    #region Hide the console Application
-
-                    if (_hideWindow == 1)
-                    {
-                        _curentWindow = GetConsoleWindow();
-                        ShowWindow(_curentWindow, 0);
-                    }
-
-                    #endregion
-
+                    logger.Information("user information was got from the crm api");
                 }
+                #endregion
+
+
+                #region SendNotification Section
+                mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
+                {
+                    DayCheck = 3,
+                    HourCheck = 2,
+                    NTasksStatus = new long[] { 100_000_005, 100_000_003 },
+                    TaskType = default,
+                });
+                #endregion
+
+
+                #region Waiting for Duration
+                logger.Information("Application Waited will Waited 30 min One Hour.");
+                Thread.Sleep(TimeSpan.FromMinutes(mfkianApi.ApplicationSetting.TimeAwaite));
+                logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
+                logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
+                #endregion
+
+
+                #region Hide the console Application
+
+                if (_hideWindow == 1)
+                {
+                    _curentWindow = GetConsoleWindow();
+                    ShowWindow(_curentWindow, 0);
+                }
+
+                #endregion
 
             }
             catch (Exception ex)
@@ -226,6 +292,57 @@ namespace NotificationUI
                 Console.WriteLine(ex.Message);
             }
 
+        }
+
+        private static void SettingTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            try
+            {
+                #region Checking For Varibale Data
+
+                if (logger == null)
+                    logger = new LoggerConfiguration()
+                      .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
+                      .MinimumLevel.Verbose()
+                      .CreateLogger();
+
+                if (services == null)
+                {
+                    services = new ServiceCollection()
+                                 .AddSingleton<IMFKianApi, MFKianApi>()
+                                 .BuildServiceProvider();
+                    logger.Information("services created ....");
+                }
+
+                if (mfkianApi == null)
+                    mfkianApi = services.GetService<IMFKianApi>();
+
+                if (mfkianApi.ApplicationSetting == null)
+                {
+
+                    var test = mfkianApi.GetApiSetting();
+
+
+                    if (test)
+                    {
+                        mfkianApi.SetApiSetting(new AppModel
+                        {
+                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                        });
+
+
+                        if (_firstLantch)
+                            mfkianApi.SendWellComeNotification();
+                    }
+                }
+
+                #endregion
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
@@ -265,6 +382,10 @@ namespace NotificationUI
 
         public static string CreateUserDomain(string name)
         {
+            if (name.Contains(@"KIAN\"))
+                return name;
+
+
             var temp = name.Split("@");
             return @"KIAN\" + temp[0];
         }

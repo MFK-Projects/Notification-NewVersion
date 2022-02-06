@@ -5,6 +5,7 @@ using Microsoft.Toolkit.Uwp.Notifications;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -140,8 +141,46 @@ namespace MFKianNotificationApi.Impelementions
         /// <summary>
         /// Send Http Request to an Server for getting Api Setting..
         /// </summary>
-        private void GetApiSetting()
+        public bool GetApiSetting()
         {
+
+            try
+            {
+                var url = @"http://crm-srv:8585/MFKIAN/api/data/v9.0/" + UrlBuilder(new RequestDataModel { Count = 3, EnttiyName = "new_notification_systems", Filters = null, SelectItem = new string[] { "new_entity_name", "new_notification_message", "new_notification_systemid", "new_setting_timer", "new_task_status", "new_task_types", "new_time_awaited" } });
+
+
+                var _stringdata = SendHttpRequest(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" }, url);
+
+                var formatedData = JsonConvert.DeserializeObject<RootModel<ApiSettignModel>>(_stringdata).Value.FirstOrDefault();
+
+                if (formatedData == null)
+                    throw new NullReferenceException("no entites found ", null);
+
+
+                _applicationSetting = new AppModel
+                {
+                    NotificationReqularMessage = formatedData.new_notification_message,
+                    EntityName = formatedData.new_entity_name,
+                    TaskStatus = formatedData.new_task_status,
+                    TasksType = formatedData.new_task_types,
+                    TimeAwaite = formatedData.new_time_awaited,
+                    SettingTimer = formatedData.new_setting_timer,
+                    NotificationSystemId = formatedData.new_notification_systemid,
+                    CredentialModel = new CredentialModel
+                    {
+                        Domain = "KIAN",
+                        Password = "r",
+                        UserName = "a.moradi"
+                    }
+                };
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Get api Setting thrown new exception ", ex);
+            }
 
         }
 
@@ -150,7 +189,7 @@ namespace MFKianNotificationApi.Impelementions
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private string UrlBuilder(RequestDataModel model)
+        private static string UrlBuilder(RequestDataModel model)
         {
             if (model == null)
                 return string.Empty;
@@ -174,16 +213,16 @@ namespace MFKianNotificationApi.Impelementions
                 }
             }
 
-
-            if (model.Filters.Count > 0)
-            {
-                url += @"&$filter=";
-                foreach (var item in model.Filters)
-                    if (item.Type == Enums.RequestDataFilterType.Content)
-                        url += "  " + item.Item + " " + item.Key + " '" + item.Value + "'";
-                    else if (item.Type == Enums.RequestDataFilterType.UniqIdentitfire || item.Type == Enums.RequestDataFilterType.Number)
-                        url += "  " + item.Item + " " + item.Key + " " + item.Value;
-            }
+            if (model.Filters != null)
+                if (model.Filters.Count > 0)
+                {
+                    url += @"&$filter=";
+                    foreach (var item in model.Filters)
+                        if (item.Type == Enums.RequestDataFilterType.Content)
+                            url += "  " + item.Item + " " + item.Key + " '" + item.Value + "'";
+                        else if (item.Type == Enums.RequestDataFilterType.UniqIdentitfire || item.Type == Enums.RequestDataFilterType.Number)
+                            url += "  " + item.Item + " " + item.Key + " " + item.Value;
+                }
 
             return url;
         }
@@ -194,7 +233,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="crmTaskUrl"></param>
         /// <returns></returns>s
         /// <exception cref="ArgumentNullException">return NullArgumentException</exception>
-        private string taskUrlBuilder(CrmTaskUrl crmTaskUrl)
+        private static string taskUrlBuilder(CrmTaskUrl crmTaskUrl)
         {
             if (crmTaskUrl == null)
                 throw new ArgumentNullException($"{typeof(CrmTaskUrl)} is null while passing to TaskUrlBuilder....");
@@ -210,7 +249,7 @@ namespace MFKianNotificationApi.Impelementions
         /// </summary>
         /// <param name="setting">specified the toast </param>
         /// <exception cref="ArgumentNullException"> return the nullArugmentException</exception>
-        private void ToastCreationFilter(NotificationCreationModel setting)
+        private static void ToastCreationFilter(NotificationCreationModel setting)
         {
 
 
@@ -246,7 +285,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="Url">url which request sent to..</param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        private string SendHttpRequest(CredentialModel model, string Url)
+        private static string SendHttpRequest(CredentialModel model, string Url)
         {
 
             var _client = new WebClient();
@@ -278,13 +317,13 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="filterModel"></param>
         /// <param name="dataModel"></param>
         /// <returns></returns>
-        private IEnumerable<TasksModel> SetNotificationfilter(NotificationFilterModel filterModel, List<TasksModel> dataModel)
+        private static IEnumerable<TasksModel> SetNotificationfilter(NotificationFilterModel filterModel, List<TasksModel> dataModel)
         {
             foreach (var item in dataModel)
             {
-                if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
-                    if (item.New_remaining_days <= filterModel.DayCheck)
-                        if (item.New_remained_time_hour <= filterModel.HourCheck)
+                //if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
+                    //if (item.New_remaining_days <= filterModel.DayCheck)
+                    //    if (item.New_remained_time_hour <= filterModel.HourCheck)
                             yield return item;
             }
         }
@@ -295,7 +334,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="taskStatus"></param>
         /// <param name="filter"></param>
         /// <returns></returns>
-        private bool CheckNtaskStatus(long taskStatus, long[] filter)
+        private static bool CheckNtaskStatus(long taskStatus, long[] filter)
         {
             if (filter.Length == 0)
                 return true;
@@ -314,7 +353,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="taskStatus"></param>
         /// <param name="filter"></param>
         /// <returns></returns>
-        private bool CheckTaskType(long taskType, long[] filter)
+        private static bool CheckTaskType(long taskType, long[] filter)
         {
             if (filter.Length == 0) return true;
 

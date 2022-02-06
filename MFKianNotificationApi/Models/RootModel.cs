@@ -20,6 +20,18 @@ namespace MFKianNotificationApi.Models
         public string Systemuserid { get; set; }
         public string Ownerid { get; set; }
     }
+
+
+    public class ApiSettignModel
+    {
+        public string new_entity_name { get; set; }
+        public string new_notification_message { get; set; }
+        public string new_notification_systemid { get; set; }
+        public double new_setting_timer { get; set; }
+        public string new_task_status { get; set; }
+        public string new_task_types { get; set; }
+        public double new_time_awaited { get; set; }
+    }
     public class TasksModel
     {
         public string Subject { get; set; }
@@ -39,7 +51,7 @@ namespace MFKianNotificationApi.Models
                 if (New_remained_time_hour > 0)
                     return DateTime.Now.AddHours(New_remained_time_hour);
                 else
-                    return null ;
+                    return null;
             }
         }
     }

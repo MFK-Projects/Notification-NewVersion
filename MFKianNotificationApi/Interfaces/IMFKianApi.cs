@@ -15,5 +15,7 @@ namespace MFKianNotificationApi.Interfaces
         List<UserModel> GetSingleRow(RequestModel model);
         void SendWellComeNotification();
         List<TasksModel> GetMultipuleRows(RequestModel model);
+
+        bool GetApiSetting();
     }
 }
