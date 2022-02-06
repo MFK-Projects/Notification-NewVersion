@@ -104,24 +104,22 @@ namespace NotificationUI
 
                 settingTimer = new();
 
-                //if (mfkianApi.ApplicationSetting.SettingTimer > 0)
-                //    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
-                //else
-                //    settingTimer.Interval = (15 * 60_000);
+                if (mfkianApi.ApplicationSetting.SettingTimer > 0)
+                    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
+                else
+                    settingTimer.Interval = (15 * 60_000);
 
-                settingTimer.Interval = 120_000;
+                settingTimer.Interval = 60000;
                 settingTimer.AutoReset = true;
                 settingTimer.Enabled = true;
                 settingTimer.Elapsed += SettingTimer_Elapsed;
 
                 appTimer = new();
 
-                //if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
-                //    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
-                //else
-                //    appTimer.Interval = (30 * 60_000);
-
-
+                if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
+                    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
+                else
+                    appTimer.Interval = (30 * 60_000);
                 appTimer.Interval = 60000;
                 appTimer.AutoReset = true;
                 appTimer.Enabled = true;
@@ -136,6 +134,10 @@ namespace NotificationUI
                     ShowWindow(_curentWindow, 0);
                 }
 
+                SettingTimer_Elapsed(null, null);
+                AppTimer_Elapsed(null, null);
+
+
 
                 logger.Information("waited for user enter the ex-force for closeing the application");
             infinte: var exitcommand = Console.ReadLine();
@@ -149,6 +151,8 @@ namespace NotificationUI
             {
                 logger.Error(ex.Message);
                 mfkianApi.SendErrorNotification(ex.Message);
+                appTimer?.Dispose();
+                settingTimer?.Dispose();
             }
         }
 
@@ -263,7 +267,7 @@ namespace NotificationUI
                                     Type = MFKianNotificationApi.Enums.RequestDataFilterType.UniqIdentitfire,
                                     Value = curentuser.Ownerid
                                 }},
-                            SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status", "new_task_type" }
+                            SelectItem = new string[] { "activityid", "new_remained_time_hour", "new_remaining_days", "new_task_status", "new_task_type", "subject" }
                         }
                     });
 
@@ -337,7 +341,7 @@ namespace NotificationUI
                 if (mfkianApi == null)
                     mfkianApi = services.GetService<IMFKianApi>();
 
-                if (mfkianApi.ApplicationSetting == null)
+                if (string.IsNullOrEmpty(mfkianApi.ApplicationSetting.NotificationReqularMessage))
                 {
 
                     var test = mfkianApi.GetApiSetting();
@@ -379,13 +383,11 @@ namespace NotificationUI
         {
             string directoryPath = Environment.CurrentDirectory + @"\ApplicationLogging";
 
-
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
 
 
-
-            return directoryPath+@"\log_file.txt";
+            return directoryPath + @"\log_file.txt";
         }
 
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MFKianNotificationApi.Impelementions
@@ -51,9 +52,9 @@ namespace MFKianNotificationApi.Impelementions
                 {
 
                     Button = null,
-                    TaskUrl = taskUrlBuilder(new CrmTaskUrl { BaseUrl = ApplicationSetting.BaseUrl, EntityId = item.Activityid, EntityName = ApplicationSetting.EntityName }),
-                    Text = new string[] { ApplicationSetting.NotificationReqularMessage },
-                    Titel = item.Subject,
+                    TaskUrl = taskUrlBuilder(new CrmTaskUrl { BaseUrl = ApplicationSetting.BaseUrl, EntityId = item.activityid, EntityName = ApplicationSetting.EntityName }),
+                    Text = new string[] { item.subject, ApplicationSetting.NotificationReqularMessage ?? "زمان انجام دادن این تسک محدود می باشد", item.RemainingTime.ToString() },
+                    Titel = item.subject,
                     ToastDuration = ToastDuration.Short,
                     ToastScenario = ToastScenario.Reminder
                 });
@@ -199,7 +200,7 @@ namespace MFKianNotificationApi.Impelementions
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private static string UrlBuilder(RequestDataModel model)
+        private string UrlBuilder(RequestDataModel model)
         {
             if (model == null)
                 return string.Empty;
@@ -243,7 +244,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="crmTaskUrl"></param>
         /// <returns></returns>s
         /// <exception cref="ArgumentNullException">return NullArgumentException</exception>
-        private static string taskUrlBuilder(CrmTaskUrl crmTaskUrl)
+        private string taskUrlBuilder(CrmTaskUrl crmTaskUrl)
         {
             if (crmTaskUrl == null)
                 throw new ArgumentNullException($"{typeof(CrmTaskUrl)} is null while passing to TaskUrlBuilder....");
@@ -259,9 +260,8 @@ namespace MFKianNotificationApi.Impelementions
         /// </summary>
         /// <param name="setting">specified the toast </param>
         /// <exception cref="ArgumentNullException"> return the nullArugmentException</exception>
-        private static void ToastCreationFilter(NotificationCreationModel setting)
+        private void ToastCreationFilter(NotificationCreationModel setting)
         {
-
 
             if (setting == null)
                 throw new ArgumentNullException($"{typeof(NotificationCreationModel)} is null while passing it to Toast Creation Filter");
@@ -286,6 +286,8 @@ namespace MFKianNotificationApi.Impelementions
 
 
             toast.Show();
+            Thread.Sleep(1000);
+
             toast = null;
         }
 
@@ -328,15 +330,20 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="filterModel"></param>
         /// <param name="dataModel"></param>
         /// <returns></returns>
-        private static IEnumerable<TasksModel> SetNotificationfilter(NotificationFilterModel filterModel, List<TasksModel> dataModel)
+        private static List<TasksModel> SetNotificationfilter(NotificationFilterModel filterModel, List<TasksModel> dataModel)
         {
+            var data = new List<TasksModel>();
             foreach (var item in dataModel)
             {
-                //if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
-                //if (item.New_remaining_days <= filterModel.DayCheck)
-                //    if (item.New_remained_time_hour <= filterModel.HourCheck)
-                yield return item;
+                
+                if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
+                    if (item.new_remaining_days <= filterModel.DayCheck)
+                        if (item.new_remained_time_hour <= filterModel.HourCheck)
+                            data.Add(item);
             }
+
+
+            return data;
         }
 
         /// <summary>

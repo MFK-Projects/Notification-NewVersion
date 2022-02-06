@@ -59,7 +59,7 @@ namespace MFKianNotificationApi.Models
     public class CrmTaskUrl
     {
         public string BaseUrl { get; set; } = @"http://crm-srv:8585/MFkian/main.aspx?etn";
-        public string EntityName { get; set; }
+        public string EntityName { get; set; } = "task";
         public string EntityId { get; set; }
     }
 }
