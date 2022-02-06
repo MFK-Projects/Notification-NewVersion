@@ -87,10 +87,7 @@ namespace NotificationUI
 
                     if (test)
                     {
-                        mfKianApi.SetApiSetting(new AppModel
-                        {
-                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                        });
+                        mfKianApi.SetApiSetting(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" });
 
                         if (_firstLantch)
                         {
@@ -109,8 +106,8 @@ namespace NotificationUI
                 else
                     settingTimer.Interval = (15 * 60_000);
 
-                settingTimer.Interval = 60000;
-                settingTimer.AutoReset = true;
+
+                settingTimer.AutoReset = false;
                 settingTimer.Enabled = true;
                 settingTimer.Elapsed += (sender, e) => SettingTimer_Elapsed(sender, e, mfKianApi);
 
@@ -120,8 +117,9 @@ namespace NotificationUI
                     appTimer.Interval = (mfKianApi.ApplicationSetting.TimeAwaite * 60_000);
                 else
                     appTimer.Interval = (30 * 60_000);
-                appTimer.Interval = 60000;
-                appTimer.AutoReset = true;
+
+
+                appTimer.AutoReset = false;
                 appTimer.Enabled = true;
                 appTimer.Elapsed += (sender, e) => AppTimer_Elapsed(sender, e, mfKianApi);
 
@@ -135,7 +133,7 @@ namespace NotificationUI
                 }
 
                 SettingTimer_Elapsed(null, null, mfKianApi);
-                AppTimer_Elapsed(null, null,mfKianApi);
+                AppTimer_Elapsed(null, null, mfKianApi);
 
 
 
@@ -219,10 +217,7 @@ namespace NotificationUI
 
                     if (test)
                     {
-                        mfkianApi.SetApiSetting(new AppModel
-                        {
-                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                        });
+                        mfkianApi.SetApiSetting(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" });
                     }
                 }
 
@@ -270,13 +265,13 @@ namespace NotificationUI
                         }
                     });
 
-                    if (userTasks.Count() > 0)
+                    if (userTasks.Any())
                         mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
                         {
                             DayCheck = 3,
                             HourCheck = 2,
-                            NTasksStatus = new long[] { 100_000_005, 100_000_003 },
-                            TaskType = default,
+                            NTasksStatus = taskStuatuCreator(mfkianApi.ApplicationSetting.TaskStatus),
+                            TaskType = CreateTaskTyps(mfkianApi.ApplicationSetting.TasksType),
                         });
                     else
                         mfkianApi.SendErrorNotification("هیچ تسکی برای انجام دادن وجود ندارد");
@@ -287,7 +282,7 @@ namespace NotificationUI
 
 
                 #region SendNotification Section
-              
+
                 #endregion
 
 
@@ -353,10 +348,7 @@ namespace NotificationUI
 
                     if (test)
                     {
-                        mFKianApi.SetApiSetting(new AppModel
-                        {
-                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                        });
+                        mFKianApi.SetApiSetting(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" });
 
 
                         if (_firstLantch)
@@ -414,6 +406,38 @@ namespace NotificationUI
 
             var temp = name.Split("@");
             return @"KIAN\" + temp[0];
+        }
+
+        private static long[] taskStuatuCreator(string status)
+        {
+            if (string.IsNullOrEmpty(status))
+                return default;
+
+            var temp = status.Split(",");
+            long[] data = default;
+
+
+            for (int i = 0; i < temp.Length; i++)
+                long.TryParse(temp[i], out data[i]);
+
+
+            return data;
+        }
+
+        private static long[] CreateTaskTyps(string types)
+        {
+            if (string.IsNullOrEmpty(types))
+                return default;
+
+            var temp = types.Split(",");
+            long[] data = default;
+
+
+            for (int i = 0; i < temp.Length; i++)
+                long.TryParse(temp[i], out data[i]);
+
+            return data;
+
         }
     }
 }

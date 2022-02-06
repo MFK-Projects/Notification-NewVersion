@@ -115,13 +115,11 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="appModel"></param>
         /// <returns></returns>
         /// <exception cref="SetApplicationException"></exception>
-        public bool SetApiSetting(AppModel appModel)
+        public bool SetApiSetting(CredentialModel appModel)
         {
             try
             {
-                _applicationSetting = appModel ?? throw new ArgumentNullException($"{typeof(AppModel)} is null while passign argument"); ;
-
-
+                _applicationSetting.CredentialModel = appModel ?? throw new ArgumentNullException($"{typeof(AppModel)} is null while passign argument");
                 return true;
             }
             catch (Exception ex)
@@ -335,7 +333,7 @@ namespace MFKianNotificationApi.Impelementions
             var data = new List<TasksModel>();
             foreach (var item in dataModel)
             {
-                
+
                 if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
                     if (item.new_remaining_days <= filterModel.DayCheck)
                         if (item.new_remained_time_hour <= filterModel.HourCheck)
