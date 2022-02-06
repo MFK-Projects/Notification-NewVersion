@@ -129,6 +129,8 @@ namespace NotificationUI
                 }
 
 
+                AppTimer_Elapsed(null,null,mfKianApi); 
+                SettingTimer_Elapsed(null,null,mfKianApi);
 
                 logger.Information("waited for user enter the ex-force for closeing the application");
             infinte: var exitcommand = Console.ReadLine();
