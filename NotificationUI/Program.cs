@@ -26,7 +26,6 @@ namespace NotificationUI
         private static bool _firstLantch = true;
         private static System.Timers.Timer settingTimer;
         private static System.Timers.Timer appTimer;
-        private static IMFKianApi mfkianApi;
         private static Logger logger;
         private static ServiceProvider services;
         #endregion
@@ -43,6 +42,7 @@ namespace NotificationUI
 
         static void Main(string[] args)
         {
+            IMFKianApi mfKianApi;
             try
             {
 
@@ -69,32 +69,32 @@ namespace NotificationUI
 
 
                 services = new ServiceCollection()
-                               .AddSingleton<IMFKianApi, MFKianApi>()
+                               .AddScoped<IMFKianApi, MFKianApi>()
                                .BuildServiceProvider();
 
                 logger.Information<ServiceProvider>("the Di Container is created!", services);
 
-                mfkianApi = services.GetService<IMFKianApi>();
+                mfKianApi = services.GetService<IMFKianApi>();
 
-                logger.Information<IMFKianApi>("the mfkian api servcice initialzied ", mfkianApi);
+                logger.Information<IMFKianApi>("the mfkian api servcice initialzied ", mfKianApi);
 
 
 
-                if (mfkianApi.ApplicationSetting == null)
+                if (mfKianApi.ApplicationSetting == null)
                 {
-                    var test = mfkianApi.GetApiSetting();
+                    var test = mfKianApi.GetApiSetting();
 
 
                     if (test)
                     {
-                        mfkianApi.SetApiSetting(new AppModel
+                        mfKianApi.SetApiSetting(new AppModel
                         {
                             CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
                         });
 
                         if (_firstLantch)
                         {
-                            mfkianApi.SendWellComeNotification();
+                            mfKianApi.SendWellComeNotification();
                             _firstLantch = false;
                         }
                     }
@@ -104,26 +104,26 @@ namespace NotificationUI
 
                 settingTimer = new();
 
-                if (mfkianApi.ApplicationSetting.SettingTimer > 0)
-                    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
+                if (mfKianApi.ApplicationSetting.SettingTimer > 0)
+                    settingTimer.Interval = (mfKianApi.ApplicationSetting.SettingTimer * 60_000);
                 else
                     settingTimer.Interval = (15 * 60_000);
 
                 settingTimer.Interval = 60000;
                 settingTimer.AutoReset = true;
                 settingTimer.Enabled = true;
-                settingTimer.Elapsed += SettingTimer_Elapsed;
+                settingTimer.Elapsed += (sender, e) => SettingTimer_Elapsed(sender, e, mfKianApi);
 
                 appTimer = new();
 
-                if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
-                    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
+                if (mfKianApi.ApplicationSetting.TimeAwaite > 0)
+                    appTimer.Interval = (mfKianApi.ApplicationSetting.TimeAwaite * 60_000);
                 else
                     appTimer.Interval = (30 * 60_000);
                 appTimer.Interval = 60000;
                 appTimer.AutoReset = true;
                 appTimer.Enabled = true;
-                appTimer.Elapsed += AppTimer_Elapsed;
+                appTimer.Elapsed += (sender, e) => AppTimer_Elapsed(sender, e, mfKianApi);
 
                 #endregion
 
@@ -134,8 +134,8 @@ namespace NotificationUI
                     ShowWindow(_curentWindow, 0);
                 }
 
-                SettingTimer_Elapsed(null, null);
-                AppTimer_Elapsed(null, null);
+                SettingTimer_Elapsed(null, null, mfKianApi);
+                AppTimer_Elapsed(null, null,mfKianApi);
 
 
 
@@ -150,13 +150,12 @@ namespace NotificationUI
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
-                mfkianApi.SendErrorNotification(ex.Message);
                 appTimer?.Dispose();
                 settingTimer?.Dispose();
             }
         }
 
-        private static void AppTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private static void AppTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e, IMFKianApi mfkianApi)
         {
 
             var userwileCount = 0;
@@ -271,19 +270,24 @@ namespace NotificationUI
                         }
                     });
 
+                    if (userTasks.Count() > 0)
+                        mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
+                        {
+                            DayCheck = 3,
+                            HourCheck = 2,
+                            NTasksStatus = new long[] { 100_000_005, 100_000_003 },
+                            TaskType = default,
+                        });
+                    else
+                        mfkianApi.SendErrorNotification("هیچ تسکی برای انجام دادن وجود ندارد");
+
                     logger.Information("user information was got from the crm api");
                 }
                 #endregion
 
 
                 #region SendNotification Section
-                mfkianApi.SendNotification(userTasks.ToList(), new NotificationFilterModel
-                {
-                    DayCheck = 3,
-                    HourCheck = 2,
-                    NTasksStatus = new long[] { 100_000_005, 100_000_003 },
-                    TaskType = default,
-                });
+              
                 #endregion
 
 
@@ -318,7 +322,7 @@ namespace NotificationUI
 
         }
 
-        private static void SettingTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private static void SettingTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e, IMFKianApi mFKianApi)
         {
             try
             {
@@ -338,25 +342,25 @@ namespace NotificationUI
                     logger.Information("services created ....");
                 }
 
-                if (mfkianApi == null)
-                    mfkianApi = services.GetService<IMFKianApi>();
+                if (mFKianApi == null)
+                    mFKianApi = services.GetService<IMFKianApi>();
 
-                if (string.IsNullOrEmpty(mfkianApi.ApplicationSetting.NotificationReqularMessage))
+                if (string.IsNullOrEmpty(mFKianApi.ApplicationSetting.NotificationReqularMessage))
                 {
 
-                    var test = mfkianApi.GetApiSetting();
+                    var test = mFKianApi.GetApiSetting();
 
 
                     if (test)
                     {
-                        mfkianApi.SetApiSetting(new AppModel
+                        mFKianApi.SetApiSetting(new AppModel
                         {
                             CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
                         });
 
 
                         if (_firstLantch)
-                            mfkianApi.SendWellComeNotification();
+                            mFKianApi.SendWellComeNotification();
                     }
                 }
 
