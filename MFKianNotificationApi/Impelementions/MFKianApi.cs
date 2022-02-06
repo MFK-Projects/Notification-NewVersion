@@ -54,7 +54,7 @@ namespace MFKianNotificationApi.Impelementions
 
                     Button = null,
                     TaskUrl = taskUrlBuilder(new CrmTaskUrl { BaseUrl = ApplicationSetting.BaseUrl, EntityId = item.activityid, EntityName = ApplicationSetting.EntityName }),
-                    Text = new string[] { item.subject, ApplicationSetting.NotificationReqularMessage ?? "زمان انجام دادن این تسک محدود می باشد", item.RemainingTime.ToString() },
+                    Text = new string[] { item.subject, ApplicationSetting.NotificationReqularMessage ?? "زمان انجام دادن این تسک محدود می باشد",item.RemainingTime.HasValue.ToString() },
                     Titel = item.subject,
                     ToastDuration = ToastDuration.Short,
                     ToastScenario = ToastScenario.Reminder
@@ -332,15 +332,12 @@ namespace MFKianNotificationApi.Impelementions
         private static List<TasksModel> SetNotificationfilter(NotificationFilterModel filterModel, List<TasksModel> dataModel)
         {
             var data = new List<TasksModel>();
-            foreach (var item in dataModel)
-            {
 
+            foreach (var item in dataModel)
                 if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
                     if (item.new_remaining_days <= filterModel.DayCheck)
                         if (item.new_remained_time_hour <= filterModel.HourCheck)
                             data.Add(item);
-            }
-
 
             return data;
         }

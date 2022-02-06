@@ -103,11 +103,11 @@ namespace NotificationUI
 
                 settingTimer = new();
 
-                if (mfKianApi.ApplicationSetting.SettingTimer > 0)
-                    settingTimer.Interval = (mfKianApi.ApplicationSetting.SettingTimer * 60_000);
-                else
-                    settingTimer.Interval = (15 * 60_000);
-
+                //if (mfKianApi.ApplicationSetting.SettingTimer > 0)
+                //    settingTimer.Interval = (mfKianApi.ApplicationSetting.SettingTimer * 60_000);
+                //else
+                //    settingTimer.Interval = (15 * 60_000);
+                settingTimer.Interval = 8000;
                 settingTimer.AutoReset = true;
                 settingTimer.Enabled = true;
                 settingTimer.Elapsed += (sender, e) => SettingTimer_Elapsed(sender, e, mfKianApi);
@@ -115,11 +115,11 @@ namespace NotificationUI
 
                 appTimer = new();
 
-                if (mfKianApi.ApplicationSetting.TimeAwaite > 0)
-                    appTimer.Interval = (mfKianApi.ApplicationSetting.TimeAwaite * 60_000);
-                else
-                    appTimer.Interval = (30 * 60_000);
-
+                //if (mfKianApi.ApplicationSetting.TimeAwaite > 0)
+                //    appTimer.Interval = (mfKianApi.ApplicationSetting.TimeAwaite * 60_000);
+                //else
+                //    appTimer.Interval = (30 * 60_000);
+                appTimer.Interval = 15000;
                 appTimer.AutoReset = true;
                 appTimer.Enabled = true;
                 appTimer.Elapsed += (sender, e) => AppTimer_Elapsed(sender, e, mfKianApi);
@@ -169,19 +169,20 @@ namespace NotificationUI
 
 
             ///Checking for the user found thread from the Active Directory;
-            var userwileCount = 0;
-            while (string.IsNullOrEmpty(curentUser))
-            {
-                Thread.Sleep(1500);
-                userwileCount += 1;
-                if (userwileCount > 10)
-                {
-                    mfkianApi.SendErrorNotification("کاربر مورد نظر یافت نشد \n  لطفا با پشتیبانی تماس حاصل نمایید");
-                    logger.Error("can not retive the user from the DirectoryApplication");
-                    Environment.Exit(0);
-                }
-            }
+            //var userwileCount = 0;
+            //while (string.IsNullOrEmpty(curentUser))
+            //{
+            //    Thread.Sleep(1500);
+            //    userwileCount += 1;
+            //    if (userwileCount > 10)
+            //    {
+            //        mfkianApi.SendErrorNotification("کاربر مورد نظر یافت نشد \n  لطفا با پشتیبانی تماس حاصل نمایید");
+            //        logger.Error("can not retive the user from the DirectoryApplication");
+            //        Environment.Exit(0);
+            //    }
+            //}
 
+            curentUser = @"KIAN\a.moradi";
             ///Corroct the user naem;
             if (!string.IsNullOrEmpty(curentUser))
                 curentUser = CreateUserDomain(curentUser);

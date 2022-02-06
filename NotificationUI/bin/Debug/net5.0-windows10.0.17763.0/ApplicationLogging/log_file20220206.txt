@@ -917,3 +917,11 @@
 2022-02-06 23:27:49.976 +03:30 [INF] Waiting Time Is Finished 
  while loop start for 5 time.
 2022-02-06 23:27:49.976 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:58:40.934 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:58:58.605 +03:30 [ERR] can not retive the user from the DirectoryApplication
+2022-02-06 23:59:42.023 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:59:42.860 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-06 23:59:45.667 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:59:45.667 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:59:45.674 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 23:59:57.863 +03:30 [INF] Start of the AppTimer_Elapsed Logic!

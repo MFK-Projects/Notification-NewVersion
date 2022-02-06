@@ -1,0 +1,20 @@
+2022-02-07 00:00:00.525 +03:30 [INF] user information was got from the crm api
+2022-02-07 00:00:00.534 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 00:00:12.860 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:00:15.392 +03:30 [INF] user information was got from the crm api
+2022-02-07 00:00:15.392 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 00:00:27.868 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:00:32.044 +03:30 [INF] user information was got from the crm api
+2022-02-07 00:00:32.044 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 00:03:37.146 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 00:03:39.576 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:04:00.270 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:04:00.271 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 00:04:12.045 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:04:21.279 +03:30 [INF] user information was got from the crm api
+2022-02-07 00:05:03.787 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 00:05:05.007 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:05:30.063 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 00:05:30.063 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 00:05:32.094 +03:30 [INF] user information was got from the crm api
+2022-02-07 00:05:32.094 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
