@@ -18,9 +18,8 @@ namespace NotificationUI
     internal class Program
     {
         #region Decare the Variables
-        private static long WhileCount = default;
         private static string curentUser = default;
-        private static IEnumerable<TasksModel> userTasks;
+        private static ICollection<TasksModel> userTasks;
         private static IntPtr _curentWindow = IntPtr.Zero;
         private static int _hideWindow = 1;
         private static bool _firstLantch = true;
@@ -44,42 +43,46 @@ namespace NotificationUI
 
         static void Main(string[] args)
         {
-            IMFKianApi mfKianApi;
+            IMFKianApi mfKianApi = default;
+
             try
             {
 
+                #region Initialzie Requirements
+                /// Set teh window show for the first of project;
                 if (_hideWindow == 1)
                 {
                     _curentWindow = GetConsoleWindow();
                     ShowWindow(_curentWindow, 1);
                 }
 
+                /// start new thread for getting user form active directory;
                 Task.Factory.StartNew(() =>
                 {
                     curentUser = GetCurentUserName();
                 });
 
-                Console.WriteLine("Application is started!..");
-                Console.WriteLine("Initializing the Requirement");
-                #region Initial Program Requirement 
-
+                ///create logger instance for loggin with serilog library;
                 logger = new LoggerConfiguration()
                   .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
                   .MinimumLevel.Verbose()
                   .CreateLogger();
 
 
+                ///using Asp net core Di for Creating our services;
+                var services = new ServiceCollection()
+                                   .AddScoped<IMFKianApi, MFKianApi>()
+                                   .BuildServiceProvider();
 
-                mfKianApi = new MFKianApi();
-
+                ///create the MfKian Service 
+                mfKianApi = services.GetService<IMFKianApi>();
                 logger.Information<IMFKianApi>("the mfkian api servcice initialzied ", mfKianApi);
 
 
-
+                /// check for the applicatin Setting to get them from server
                 if (mfKianApi.ApplicationSetting == null)
                 {
                     var test = mfKianApi.GetApiSetting();
-
 
                     if (test)
                     {
@@ -93,7 +96,10 @@ namespace NotificationUI
                     }
                 }
 
-                #region Settign the timers for infinte interval
+
+                #endregion
+
+                #region Tiemrs
 
                 settingTimer = new();
 
@@ -121,7 +127,7 @@ namespace NotificationUI
 
                 #endregion
 
-
+                ///hide the curen tconsole ;
                 if (_hideWindow == 1)
                 {
                     _curentWindow = GetConsoleWindow();
@@ -129,86 +135,64 @@ namespace NotificationUI
                 }
 
 
-                AppTimer_Elapsed(null,null,mfKianApi); 
-                SettingTimer_Elapsed(null,null,mfKianApi);
+                /// fire the method for first time;
+                AppTimer_Elapsed(null, null, mfKianApi);
+                SettingTimer_Elapsed(null, null, mfKianApi);
 
                 logger.Information("waited for user enter the ex-force for closeing the application");
+
             infinte: var exitcommand = Console.ReadLine();
 
                 if (exitcommand == "ex-force")
                     Environment.Exit(0);
                 else
                     goto infinte;
+
+                logger.Information($"Application Shut Down!--------------------------------------------------------{DateTime.Now}");
             }
             catch (Exception ex)
             {
                 logger.Error(ex.Message);
+                appTimer?.Stop();
+                settingTimer?.Stop();
                 appTimer?.Dispose();
                 settingTimer?.Dispose();
+
+                mfKianApi.SendErrorNotification($"لطفا با پشتیبان تماس حاصل نمایید  \n  application will be shutdown after a second \n {ex.Message}");
+                Thread.Sleep(1000);
+                Environment.Exit(0);
             }
         }
 
         private static void AppTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e, IMFKianApi mfkianApi)
         {
 
-            var userwileCount = 0;
 
+            ///Checking for the user found thread from the Active Directory;
+            var userwileCount = 0;
             while (string.IsNullOrEmpty(curentUser))
             {
                 Thread.Sleep(1500);
-                WhileCount += 1;
+                userwileCount += 1;
                 if (userwileCount > 10)
                 {
-                    Console.WriteLine("You Stuck in the Geting UserNameWhile And Application Will be ShutDown..");
+                    mfkianApi.SendErrorNotification("کاربر مورد نظر یافت نشد \n  لطفا با پشتیبانی تماس حاصل نمایید");
                     logger.Error("can not retive the user from the DirectoryApplication");
                     Environment.Exit(0);
                 }
-
             }
 
-
+            ///Corroct the user naem;
             if (!string.IsNullOrEmpty(curentUser))
                 curentUser = CreateUserDomain(curentUser);
 
 
-
-            Console.WriteLine("Application Successfuly Initialized the Requirement!");
-            logger.Information<Program>("Application Successfuly Initialized the Requirement!", null);
-            #endregion
+            logger.Information("Start of the AppTimer_Elapsed Logic!");
 
             try
             {
-                if (_firstLantch)
-                {
-                    Console.WriteLine("Well Come Notification going to be send");
-                    mfkianApi.SendWellComeNotification();
-                    _firstLantch = false;
-                    Console.WriteLine("WellCome Notification Sent");
-                }
-
-                #region Checking For Varibale Data
-
-                if (logger == null)
-                    logger = new LoggerConfiguration()
-                      .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
-                      .MinimumLevel.Verbose()
-                      .CreateLogger();
-
-
-                if (mfkianApi == null)
-                    mfkianApi = new MFKianApi();
-
-                if (mfkianApi.ApplicationSetting == null)
-                {
-                    var test = mfkianApi.GetApiSetting();
-
-
-                    if (test)
-                    {
-                        mfkianApi.SetApiSetting(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" });
-                    }
-                }
-
+                #region Requirement Checking
+                CheckRequirement(logger, mfkianApi);
                 #endregion
 
                 #region Get UserTask for Notification
@@ -270,14 +254,12 @@ namespace NotificationUI
                 #endregion
 
 
-                #region SendNotification Section
 
-                #endregion
-                Console.WriteLine($" ttcounter : {ttestcounter += 1}");
-                logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                 logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
 
-                mfkianApi?.Dispose();
+                /// for reapetig multipule time
+                if (userTasks.Any())
+                    userTasks = null;
 
                 #region Hide the console Application
 
@@ -308,38 +290,11 @@ namespace NotificationUI
             {
                 #region Checking For Varibale Data
 
-                if (logger == null)
-                    logger = new LoggerConfiguration()
-                      .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
-                      .MinimumLevel.Verbose()
-                      .CreateLogger();
-
-
-
-                if (mFKianApi == null)
-                    mFKianApi = new MFKianApi();
-
-                if (string.IsNullOrEmpty(mFKianApi.ApplicationSetting.NotificationReqularMessage))
-                {
-
-                    var test = mFKianApi.GetApiSetting();
-
-
-                    if (test)
-                    {
-                        mFKianApi.SetApiSetting(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" });
-
-
-                        if (_firstLantch)
-                            mFKianApi.SendWellComeNotification();
-                    }
-                }
+                CheckRequirement(logger, mFKianApi);
 
                 #endregion
 
-
                 Console.WriteLine($"xtestcoutner:{xtestcoutner += 1}");
-                mFKianApi?.Dispose();
             }
             catch (Exception ex)
             {
@@ -421,6 +376,15 @@ namespace NotificationUI
 
             return data;
 
+        }
+
+        private static void CheckRequirement(Logger logger, IMFKianApi mFKian)
+        {
+            if (logger == null)
+                logger = new LoggerConfiguration()
+                  .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
+                  .MinimumLevel.Verbose()
+                  .CreateLogger();
         }
     }
 }

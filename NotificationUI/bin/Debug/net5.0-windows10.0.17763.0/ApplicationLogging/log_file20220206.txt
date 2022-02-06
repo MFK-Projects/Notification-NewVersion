@@ -866,3 +866,54 @@
 2022-02-06 22:53:25.997 +03:30 [INF] Waiting Time Is Finished 
  while loop start for 2 time.
 2022-02-06 22:53:25.997 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:11:12.863 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:12:29.062 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:13:15.735 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:14:45.289 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:16:32.668 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:18:02.438 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:18:03.489 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:20:04.005 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:20:20.327 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:20:21.551 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:22:40.000 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:22:41.086 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:23:00.313 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:23:01.691 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:24:29.034 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:24:29.964 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:24:52.427 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:24:53.693 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:25:04.392 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:25:06.102 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 23:25:06.102 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:25:06.103 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 23:25:11.707 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:26:34.043 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 23:26:35.437 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:26:40.883 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:26:40.883 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 23:26:40.883 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:26:40.885 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 23:26:53.450 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:26:59.034 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:26:59.034 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 23:26:59.034 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:27:11.450 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:27:16.097 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:27:16.097 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 23:27:16.097 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:27:29.443 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:27:32.777 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:27:32.777 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 23:27:32.778 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 23:27:47.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 23:27:49.975 +03:30 [INF] user information was got from the crm api
+2022-02-06 23:27:49.976 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 5 time.
+2022-02-06 23:27:49.976 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
