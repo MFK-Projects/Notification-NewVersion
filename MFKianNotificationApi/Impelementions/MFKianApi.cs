@@ -27,6 +27,13 @@ namespace MFKianNotificationApi.Impelementions
         #region publiic Methods
 
 
+        public void SendErrorNotification(string text)
+        {
+            new ToastContentBuilder()
+                .AddText(text)
+                .Show();
+        }
+
         /// <summary>
         /// Send Notification For the Tasks remaind
         /// </summary>
@@ -42,6 +49,7 @@ namespace MFKianNotificationApi.Impelementions
             {
                 ToastCreationFilter(new NotificationCreationModel
                 {
+
                     Button = null,
                     TaskUrl = taskUrlBuilder(new CrmTaskUrl { BaseUrl = ApplicationSetting.BaseUrl, EntityId = item.Activityid, EntityName = ApplicationSetting.EntityName }),
                     Text = new string[] { ApplicationSetting.NotificationReqularMessage },
@@ -127,7 +135,9 @@ namespace MFKianNotificationApi.Impelementions
         public void SendWellComeNotification()
         {
             var toast = new ToastContentBuilder();
+
             toast.AddText("نرم افزار ارسال نوتیفیکشن با موفیت ست شد")
+                .SetProtocolActivation(new Uri(@"http://crm-srv:8585/MFkian/main.aspx?"))
                 .Show();
 
 
@@ -241,7 +251,7 @@ namespace MFKianNotificationApi.Impelementions
                 throw new ArgumentNullException($"{typeof(CrmTaskUrl)} is null while passing to TaskUrlBuilder.... the EntityName or EntityId is Null");
 
 
-            return crmTaskUrl + crmTaskUrl.EntityName + "&id={" + crmTaskUrl.EntityId + "}";
+            return @"http://crm-srv:8585/MFkian/main.aspx?etn=" + crmTaskUrl.EntityName + "&id={" + crmTaskUrl.EntityId + "}&pagetype=entityrecord#";
         }
 
         /// <summary>
@@ -270,8 +280,9 @@ namespace MFKianNotificationApi.Impelementions
                     foreach (var button in setting.Button)
                         toast.AddButton(button);
 
+
             if (!string.IsNullOrEmpty(setting.TaskUrl))
-                toast.SetProtocolActivation(new System.Uri(setting.TaskUrl));
+                toast.SetProtocolActivation(new System.Uri(@"http://crm-srv:8585/" + setting.TaskUrl));
 
 
             toast.Show();
@@ -322,9 +333,9 @@ namespace MFKianNotificationApi.Impelementions
             foreach (var item in dataModel)
             {
                 //if (CheckNtaskStatus(item.New_task_status, filterModel.NTasksStatus) && CheckTaskType(item.New_task_type, filterModel.TaskType))
-                    //if (item.New_remaining_days <= filterModel.DayCheck)
-                    //    if (item.New_remained_time_hour <= filterModel.HourCheck)
-                            yield return item;
+                //if (item.New_remaining_days <= filterModel.DayCheck)
+                //    if (item.New_remained_time_hour <= filterModel.HourCheck)
+                yield return item;
             }
         }
 

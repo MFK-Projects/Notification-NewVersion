@@ -43,110 +43,125 @@ namespace NotificationUI
 
         static void Main(string[] args)
         {
-
-            Task.Factory.StartNew(() =>
+            try
             {
-                curentUser = GetCurentUserName();
-            });
 
-            Console.WriteLine("Application is started!..");
-            Console.WriteLine("Initializing the Requirement");
-            #region Initial Program Requirement 
-
-
-
-            logger = new LoggerConfiguration()
-              .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
-              .MinimumLevel.Verbose()
-              .CreateLogger();
-
-
-            services = new ServiceCollection()
-                           .AddSingleton<IMFKianApi, MFKianApi>()
-                           .BuildServiceProvider();
-
-
-
-            mfkianApi = services.GetService<IMFKianApi>();
-
-
-            logger.Information("Logger Set Serilog Library Used For Loggin.");
-
-            logger.Information("services variable is created  from ServiceCollection.");
-
-            logger.Information("mfkianApi Created For this Application");
-
-
-
-            if (mfkianApi.ApplicationSetting == null)
-            {
-                var test = mfkianApi.GetApiSetting();
-
-
-                if (test)
+                if (_hideWindow == 1)
                 {
-                    mfkianApi.SetApiSetting(new AppModel
-                    {
-                        CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                    });
-
-                    mfkianApi.SendWellComeNotification();
+                    _curentWindow = GetConsoleWindow();
+                    ShowWindow(_curentWindow, 1);
                 }
+
+                Task.Factory.StartNew(() =>
+                {
+                    curentUser = GetCurentUserName();
+                });
+
+                Console.WriteLine("Application is started!..");
+                Console.WriteLine("Initializing the Requirement");
+                #region Initial Program Requirement 
+
+                logger = new LoggerConfiguration()
+                  .WriteTo.File(CreateLogFile(), rollingInterval: RollingInterval.Day)
+                  .MinimumLevel.Verbose()
+                  .CreateLogger();
+
+
+
+                services = new ServiceCollection()
+                               .AddSingleton<IMFKianApi, MFKianApi>()
+                               .BuildServiceProvider();
+
+                logger.Information<ServiceProvider>("the Di Container is created!", services);
+
+                mfkianApi = services.GetService<IMFKianApi>();
+
+                logger.Information<IMFKianApi>("the mfkian api servcice initialzied ", mfkianApi);
+
+
+
+                if (mfkianApi.ApplicationSetting == null)
+                {
+                    var test = mfkianApi.GetApiSetting();
+
+
+                    if (test)
+                    {
+                        mfkianApi.SetApiSetting(new AppModel
+                        {
+                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                        });
+
+                        if (_firstLantch)
+                        {
+                            mfkianApi.SendWellComeNotification();
+                            _firstLantch = false;
+                        }
+                    }
+                }
+
+                #region Settign the timers for infinte interval
+
+                settingTimer = new();
+
+                //if (mfkianApi.ApplicationSetting.SettingTimer > 0)
+                //    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
+                //else
+                //    settingTimer.Interval = (15 * 60_000);
+
+                settingTimer.Interval = 120_000;
+                settingTimer.AutoReset = true;
+                settingTimer.Enabled = true;
+                settingTimer.Elapsed += SettingTimer_Elapsed;
+
+                appTimer = new();
+
+                //if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
+                //    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
+                //else
+                //    appTimer.Interval = (30 * 60_000);
+
+
+                appTimer.Interval = 60000;
+                appTimer.AutoReset = true;
+                appTimer.Enabled = true;
+                appTimer.Elapsed += AppTimer_Elapsed;
+
+                #endregion
+
+
+                if (_hideWindow == 1)
+                {
+                    _curentWindow = GetConsoleWindow();
+                    ShowWindow(_curentWindow, 0);
+                }
+
+
+                logger.Information("waited for user enter the ex-force for closeing the application");
+            infinte: var exitcommand = Console.ReadLine();
+
+                if (exitcommand == "ex-force")
+                    Environment.Exit(0);
+                else
+                    goto infinte;
             }
-
-            #region Settign the timers for infinte interval
-
-            settingTimer = new();
-
-            //if (mfkianApi.ApplicationSetting.SettingTimer > 0)
-            //    settingTimer.Interval = (mfkianApi.ApplicationSetting.SettingTimer * 60_000);
-            //else
-            //    settingTimer.Interval = (15 * 60_000);
-
-            settingTimer.Interval = (60000 * 3);
-            settingTimer.AutoReset = true;
-            settingTimer.Enabled = true;
-            settingTimer.Elapsed += SettingTimer_Elapsed;
-
-            appTimer = new();
-
-            //if (mfkianApi.ApplicationSetting.TimeAwaite > 0)
-            //    appTimer.Interval = (mfkianApi.ApplicationSetting.TimeAwaite * 60_000);
-            //else
-            //    appTimer.Interval = (30 * 60_000);
-
-            appTimer.Interval = (60000 * 4);
-            appTimer.AutoReset = true;
-            appTimer.Enabled = true;
-            appTimer.Elapsed += AppTimer_Elapsed;
-
-            #endregion
-
-
-            logger.Information("apptimer and setting timer is elapsed ..... sucssfuly initilazied");
-        infinte: var exitcommand = Console.ReadLine();
-
-            if (exitcommand == "ex-force")
-                Environment.Exit(0);
-            else
-                goto infinte;
-
-
-
-
-
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+                mfkianApi.SendErrorNotification(ex.Message);
+            }
         }
 
         private static void AppTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
 
+            var userwileCount = 0;
+
             while (string.IsNullOrEmpty(curentUser))
             {
-                var wileCount = 0;
                 Thread.Sleep(1500);
                 WhileCount += 1;
-
-                if (wileCount > 10)
+                if (userwileCount > 10)
                 {
                     Console.WriteLine("You Stuck in the Geting UserNameWhile And Application Will be ShutDown..");
                     logger.Error("can not retive the user from the DirectoryApplication");
@@ -161,19 +176,20 @@ namespace NotificationUI
 
 
 
-
             Console.WriteLine("Application Successfuly Initialized the Requirement!");
+            logger.Information<Program>("Application Successfuly Initialized the Requirement!", null);
             #endregion
 
             try
             {
-                if (_firstLantch == true)
+                if (_firstLantch)
                 {
                     Console.WriteLine("Well Come Notification going to be send");
                     mfkianApi.SendWellComeNotification();
                     _firstLantch = false;
                     Console.WriteLine("WellCome Notification Sent");
                 }
+
                 #region Checking For Varibale Data
 
                 if (logger == null)
@@ -195,11 +211,16 @@ namespace NotificationUI
 
                 if (mfkianApi.ApplicationSetting == null)
                 {
-                    mfkianApi.SetApiSetting(new AppModel
+                    var test = mfkianApi.GetApiSetting();
+
+
+                    if (test)
                     {
-                        CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
-                        NotificationReqularMessage = mfkianApi.ApplicationSetting.NotificationReqularMessage ?? "مدت زمان انجام این تسک برای شما رو به اتمام است"
-                    });
+                        mfkianApi.SetApiSetting(new AppModel
+                        {
+                            CredentialModel = new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" },
+                        });
+                    }
                 }
 
                 #endregion
@@ -288,8 +309,7 @@ namespace NotificationUI
                     _curentWindow = GetConsoleWindow();
                     ShowWindow(_curentWindow, 1);
                 }
-                logger.Error($"erro ouccered :{ex?.Message} \n inner exception : {ex?.InnerException?.Message ?? "no inner exception"}");
-                Console.WriteLine(ex.Message);
+                throw new Exception(ex.Message);
             }
 
         }
@@ -338,10 +358,14 @@ namespace NotificationUI
 
                 #endregion
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                if (_hideWindow == 0)
+                {
+                    _curentWindow = GetConsoleWindow();
+                    ShowWindow(_curentWindow, 1);
+                }
+                throw new Exception(ex.Message);
             }
         }
 
@@ -354,18 +378,14 @@ namespace NotificationUI
         private static string CreateLogFile()
         {
             string directoryPath = Environment.CurrentDirectory + @"\ApplicationLogging";
-            string filename = @"\loggfile" + DateTime.Now.ToString(" yyyy,MM,dd, hh-mm-ss-ffff") + ".txt";
 
 
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
 
 
-            string finalfile = directoryPath + filename;
 
-            File.CreateText(finalfile);
-
-            return finalfile;
+            return directoryPath+@"\log_file.txt";
         }
 
 

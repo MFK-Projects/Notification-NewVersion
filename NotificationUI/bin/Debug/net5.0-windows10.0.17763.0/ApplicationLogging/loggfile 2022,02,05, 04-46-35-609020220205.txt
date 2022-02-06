@@ -1,7 +1,0 @@
-2022-02-05 16:46:40.864 +03:30 [INF] Logger Set Serilog Library Used For Loggin.
-2022-02-05 16:46:43.678 +03:30 [INF] Curent User retiver form the Active Directory 
-2022-02-05 16:46:44.626 +03:30 [INF] services variable is created  from ServiceCollection.
-2022-02-05 16:46:45.331 +03:30 [INF] mfkianApi Created For this Application
-2022-02-05 16:46:46.264 +03:30 [INF] While Loop Is Being Start.
-2022-02-05 16:47:27.929 +03:30 [ERR] erro ouccered :GetTask Data Thrown an Exception 
- inner exception : no inner exception

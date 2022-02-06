@@ -1,4 +1,0 @@
-2022-02-06 13:17:28.727 +03:30 [INF] Logger Set Serilog Library Used For Loggin.
-2022-02-06 13:17:28.834 +03:30 [INF] services variable is created  from ServiceCollection.
-2022-02-06 13:17:28.834 +03:30 [INF] mfkianApi Created For this Application
-2022-02-06 13:17:34.375 +03:30 [INF] apptimer and setting timer is elapsed ..... sucssfuly initilazied
