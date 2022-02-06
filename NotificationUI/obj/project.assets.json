@@ -1135,19 +1135,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a.moradi\\.nuget\\packages\\": {}
+    "C:\\Users\\Amir_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
+      "projectUniqueName": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\NotificationUI\\NotificationUI.csproj",
       "projectName": "NotificationUI",
-      "projectPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
-      "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\obj\\",
+      "projectPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\NotificationUI\\NotificationUI.csproj",
+      "packagesPath": "C:\\Users\\Amir_\\.nuget\\packages\\",
+      "outputPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\NotificationUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\a.moradi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Amir_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1161,8 +1161,8 @@
         "net5.0-windows10.0.17763": {
           "targetAlias": "net5.0-windows10.0.17763.0",
           "projectReferences": {
-            "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
-              "projectPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj"
+            "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
+              "projectPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj"
             }
           }
         }

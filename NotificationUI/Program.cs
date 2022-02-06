@@ -27,7 +27,9 @@ namespace NotificationUI
         private static System.Timers.Timer settingTimer;
         private static System.Timers.Timer appTimer;
         private static Logger logger;
-        private static ServiceProvider services;
+
+        private static int ttestcounter = 0;
+        private static int xtestcoutner = 0;
         #endregion
 
         #region Hide the console application 
@@ -68,13 +70,7 @@ namespace NotificationUI
 
 
 
-                services = new ServiceCollection()
-                               .AddScoped<IMFKianApi, MFKianApi>()
-                               .BuildServiceProvider();
-
-                logger.Information<ServiceProvider>("the Di Container is created!", services);
-
-                mfKianApi = services.GetService<IMFKianApi>();
+                mfKianApi = new MFKianApi();
 
                 logger.Information<IMFKianApi>("the mfkian api servcice initialzied ", mfKianApi);
 
@@ -106,10 +102,10 @@ namespace NotificationUI
                 else
                     settingTimer.Interval = (15 * 60_000);
 
-
-                settingTimer.AutoReset = false;
+                settingTimer.AutoReset = true;
                 settingTimer.Enabled = true;
                 settingTimer.Elapsed += (sender, e) => SettingTimer_Elapsed(sender, e, mfKianApi);
+                settingTimer.Start();
 
                 appTimer = new();
 
@@ -118,10 +114,10 @@ namespace NotificationUI
                 else
                     appTimer.Interval = (30 * 60_000);
 
-
-                appTimer.AutoReset = false;
+                appTimer.AutoReset = true;
                 appTimer.Enabled = true;
                 appTimer.Elapsed += (sender, e) => AppTimer_Elapsed(sender, e, mfKianApi);
+                appTimer.Start();
 
                 #endregion
 
@@ -131,9 +127,6 @@ namespace NotificationUI
                     _curentWindow = GetConsoleWindow();
                     ShowWindow(_curentWindow, 0);
                 }
-
-                SettingTimer_Elapsed(null, null, mfKianApi);
-                AppTimer_Elapsed(null, null, mfKianApi);
 
 
 
@@ -199,16 +192,9 @@ namespace NotificationUI
                       .MinimumLevel.Verbose()
                       .CreateLogger();
 
-                if (services == null)
-                {
-                    services = new ServiceCollection()
-                                 .AddSingleton<IMFKianApi, MFKianApi>()
-                                 .BuildServiceProvider();
-                    logger.Information("services created ....");
-                }
 
                 if (mfkianApi == null)
-                    mfkianApi = services.GetService<IMFKianApi>();
+                    mfkianApi = new MFKianApi();
 
                 if (mfkianApi.ApplicationSetting == null)
                 {
@@ -277,6 +263,7 @@ namespace NotificationUI
                         mfkianApi.SendErrorNotification("هیچ تسکی برای انجام دادن وجود ندارد");
 
                     logger.Information("user information was got from the crm api");
+
                 }
                 #endregion
 
@@ -284,15 +271,11 @@ namespace NotificationUI
                 #region SendNotification Section
 
                 #endregion
-
-
-                #region Waiting for Duration
-                logger.Information("Application Waited will Waited 30 min One Hour.");
-                Thread.Sleep(TimeSpan.FromMinutes(mfkianApi.ApplicationSetting.TimeAwaite));
+                Console.WriteLine($" ttcounter : {ttestcounter += 1}");
                 logger.Information($"Waiting Time Is Finished \n while loop start for {WhileCount += 1} time.");
                 logger.Information("------------------------------------------------------------------------------------------------------------------- end of application logic");
-                #endregion
 
+                mfkianApi?.Dispose();
 
                 #region Hide the console Application
 
@@ -329,16 +312,10 @@ namespace NotificationUI
                       .MinimumLevel.Verbose()
                       .CreateLogger();
 
-                if (services == null)
-                {
-                    services = new ServiceCollection()
-                                 .AddSingleton<IMFKianApi, MFKianApi>()
-                                 .BuildServiceProvider();
-                    logger.Information("services created ....");
-                }
+
 
                 if (mFKianApi == null)
-                    mFKianApi = services.GetService<IMFKianApi>();
+                    mFKianApi = new MFKianApi();
 
                 if (string.IsNullOrEmpty(mFKianApi.ApplicationSetting.NotificationReqularMessage))
                 {
@@ -357,6 +334,10 @@ namespace NotificationUI
                 }
 
                 #endregion
+
+
+                Console.WriteLine($"xtestcoutner:{xtestcoutner += 1}");
+                mFKianApi?.Dispose();
             }
             catch (Exception ex)
             {
@@ -414,11 +395,11 @@ namespace NotificationUI
                 return default;
 
             var temp = status.Split(",");
-            long[] data = default;
+            long[] data = new long[temp.Length];
 
 
             for (int i = 0; i < temp.Length; i++)
-                long.TryParse(temp[i], out data[i]);
+                data[i] = Convert.ToInt64(temp[i]);
 
 
             return data;
@@ -430,11 +411,11 @@ namespace NotificationUI
                 return default;
 
             var temp = types.Split(",");
-            long[] data = default;
+            long[] data = new long[temp.Length];
 
 
             for (int i = 0; i < temp.Length; i++)
-                long.TryParse(temp[i], out data[i]);
+                data[i] = Convert.ToInt64(temp[i]);
 
             return data;
 

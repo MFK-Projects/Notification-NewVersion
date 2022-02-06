@@ -12,7 +12,7 @@ namespace MFKianNotificationApi.Models
         public CredentialModel CredentialModel { get; set; }
         public double TimeAwaite { get; set; } = 30;
         public string NotificationReqularMessage { get; set; }
-        public string BaseUrl { get; set; } = @"http://crm-srv:8585/MFkian/api/data/v9.0/";
+        public string BaseUrl { get; set; } = @"http://80.210.16.4:8585/MFkian/api/data/v9.0/";
         public string EntityName { get; set; } = "tasks";
         public string LogPath { get; set; } 
         public string TasksType { get; set; }

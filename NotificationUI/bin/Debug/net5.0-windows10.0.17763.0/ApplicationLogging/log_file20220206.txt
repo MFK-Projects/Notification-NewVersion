@@ -305,3 +305,564 @@
 2022-02-06 20:09:00.174 +03:30 [INF] Application Waited will Waited 30 min One Hour.
 2022-02-06 20:19:35.254 +03:30 [INF] the Di Container is created!
 2022-02-06 20:19:37.236 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:41:04.594 +03:30 [INF] the Di Container is created!
+2022-02-06 20:41:05.510 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:41:48.560 +03:30 [INF] the Di Container is created!
+2022-02-06 20:41:50.966 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:43:27.823 +03:30 [INF] the Di Container is created!
+2022-02-06 20:43:28.238 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:52:45.044 +03:30 [INF] the Di Container is created!
+2022-02-06 20:52:45.096 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:56:28.571 +03:30 [INF] the Di Container is created!
+2022-02-06 20:56:28.699 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:57:36.327 +03:30 [INF] the Di Container is created!
+2022-02-06 20:57:36.601 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 20:57:46.075 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:01:14.595 +03:30 [INF] the Di Container is created!
+2022-02-06 21:01:14.683 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:01:30.093 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:01:31.133 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:01:31.133 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:03:15.861 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:03:15.861 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:03:31.141 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:03:31.141 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:03:31.141 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:05:15.869 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:05:15.869 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:08:59.072 +03:30 [INF] the Di Container is created!
+2022-02-06 21:08:59.460 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:09:42.355 +03:30 [INF] the Di Container is created!
+2022-02-06 21:09:42.452 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:09:43.455 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:09:57.587 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:09:57.588 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:11:43.462 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:11:43.462 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:11:57.595 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:11:57.595 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:11:57.595 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:14:58.632 +03:30 [INF] the Di Container is created!
+2022-02-06 21:14:58.776 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:14:59.940 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:15:02.467 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:15:02.468 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:15:32.958 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:15:32.958 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:16:05.952 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:16:05.953 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:16:44.518 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:16:48.611 +03:30 [INF] Application Waited will Waited 30 min One Hour.
+2022-02-06 21:17:02.483 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:17:02.483 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:17:02.483 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:17:21.989 +03:30 [INF] the Di Container is created!
+2022-02-06 21:17:22.110 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:17:26.727 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:17:29.239 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:17:29.240 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:17:29.240 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:17:29.240 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:17:56.399 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:17:56.399 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:17:56.400 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:18:29.406 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:18:29.406 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:18:29.407 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:19:06.027 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:19:12.013 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:19:12.826 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:20:22.645 +03:30 [INF] the Di Container is created!
+2022-02-06 21:20:22.725 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:20:26.261 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:20:28.820 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:20:28.820 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:20:28.820 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:20:28.820 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:20:56.591 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:20:56.591 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:20:56.591 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:21:29.576 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:21:29.576 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:21:29.577 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:22:02.587 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:22:02.588 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:22:02.588 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:22:35.591 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:22:35.592 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 5 time.
+2022-02-06 21:22:35.592 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:23:08.578 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:23:08.578 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 6 time.
+2022-02-06 21:23:08.578 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:23:41.577 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:23:41.577 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 7 time.
+2022-02-06 21:23:41.578 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:24:14.579 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:24:14.579 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 8 time.
+2022-02-06 21:24:14.579 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:24:47.589 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:24:47.589 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 9 time.
+2022-02-06 21:24:47.589 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:25:20.586 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:25:20.587 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 10 time.
+2022-02-06 21:25:20.587 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:25:53.574 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:25:53.575 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 11 time.
+2022-02-06 21:25:53.575 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:26:26.583 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:26:26.584 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 12 time.
+2022-02-06 21:26:26.584 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:26:59.586 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:26:59.586 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 13 time.
+2022-02-06 21:26:59.586 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:27:32.586 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:27:32.586 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 14 time.
+2022-02-06 21:27:32.586 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:28:05.585 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:28:05.586 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 15 time.
+2022-02-06 21:28:05.586 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:28:38.585 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:28:38.585 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 16 time.
+2022-02-06 21:28:38.585 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:29:11.586 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:29:11.587 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 17 time.
+2022-02-06 21:29:11.587 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:29:44.582 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:29:44.583 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 18 time.
+2022-02-06 21:29:44.583 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:30:17.586 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:30:17.586 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 19 time.
+2022-02-06 21:30:17.586 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:30:50.580 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:30:50.581 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 20 time.
+2022-02-06 21:30:50.581 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:31:23.585 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:31:23.585 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 21 time.
+2022-02-06 21:31:23.585 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:31:56.581 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:31:56.581 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 22 time.
+2022-02-06 21:31:56.581 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:32:29.584 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:32:29.585 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 23 time.
+2022-02-06 21:32:29.585 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:33:02.584 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:33:02.584 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 24 time.
+2022-02-06 21:33:02.584 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:34:08.173 +03:30 [INF] the Di Container is created!
+2022-02-06 21:34:08.253 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:34:09.509 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:34:12.477 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:34:12.477 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:34:12.477 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:34:12.478 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:35:28.179 +03:30 [INF] the Di Container is created!
+2022-02-06 21:35:28.405 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:35:29.448 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:35:32.261 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:35:32.261 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:35:32.261 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:35:32.261 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:35:45.458 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:35:45.458 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:35:45.458 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:36:01.457 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:36:01.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:36:01.457 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:36:17.455 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:36:17.456 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:36:17.456 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:36:33.460 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:36:33.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 5 time.
+2022-02-06 21:36:33.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:36:49.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:36:49.459 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 6 time.
+2022-02-06 21:36:49.459 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:37:05.453 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:37:05.454 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 7 time.
+2022-02-06 21:37:05.454 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:37:21.457 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:37:21.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 8 time.
+2022-02-06 21:37:21.458 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:37:37.468 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:37:37.468 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 9 time.
+2022-02-06 21:37:37.468 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:37:53.452 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:37:53.452 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 10 time.
+2022-02-06 21:37:53.453 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:38:09.457 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:38:09.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 11 time.
+2022-02-06 21:38:09.457 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:38:25.455 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:38:25.455 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 12 time.
+2022-02-06 21:38:25.455 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:38:41.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:38:41.459 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 13 time.
+2022-02-06 21:38:41.459 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:38:57.460 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:38:57.460 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 14 time.
+2022-02-06 21:38:57.460 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:39:13.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:39:13.460 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 15 time.
+2022-02-06 21:39:13.460 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:39:29.456 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:39:29.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 16 time.
+2022-02-06 21:39:29.457 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:39:45.448 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:39:45.449 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 17 time.
+2022-02-06 21:39:45.449 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:40:01.452 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:40:01.452 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 18 time.
+2022-02-06 21:40:01.452 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:40:17.453 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:40:17.453 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 19 time.
+2022-02-06 21:40:17.453 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:40:33.457 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:40:33.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 20 time.
+2022-02-06 21:40:33.457 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:40:49.451 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:40:49.451 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 21 time.
+2022-02-06 21:40:49.451 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:41:05.450 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:41:05.450 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 22 time.
+2022-02-06 21:41:05.450 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:41:21.464 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:41:21.464 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 23 time.
+2022-02-06 21:41:21.464 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:41:37.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:41:37.459 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 24 time.
+2022-02-06 21:41:37.459 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:41:53.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:41:53.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 25 time.
+2022-02-06 21:41:53.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:42:09.460 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:42:09.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 26 time.
+2022-02-06 21:42:09.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:42:25.465 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:42:25.466 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 27 time.
+2022-02-06 21:42:25.466 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:42:41.460 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:42:41.460 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 28 time.
+2022-02-06 21:42:41.460 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:42:57.457 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:42:57.457 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 29 time.
+2022-02-06 21:42:57.457 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:43:13.452 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:43:13.452 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 30 time.
+2022-02-06 21:43:13.452 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:43:29.446 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:43:29.446 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 31 time.
+2022-02-06 21:43:29.446 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:43:45.447 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:43:45.447 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 32 time.
+2022-02-06 21:43:45.447 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:44:01.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:44:01.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 33 time.
+2022-02-06 21:44:01.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:44:17.452 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:44:17.452 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 34 time.
+2022-02-06 21:44:17.452 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:44:33.446 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:44:33.447 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 35 time.
+2022-02-06 21:44:33.447 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:44:49.449 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:44:49.449 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 36 time.
+2022-02-06 21:44:49.449 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:45:05.459 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:45:05.460 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 37 time.
+2022-02-06 21:45:05.460 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:45:21.447 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:45:21.448 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 38 time.
+2022-02-06 21:45:21.448 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:46:54.777 +03:30 [INF] the Di Container is created!
+2022-02-06 21:46:54.853 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:46:56.122 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:46:59.093 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:46:59.093 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:46:59.093 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:46:59.094 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:47:12.133 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:47:12.133 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:47:12.133 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:47:28.130 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:47:28.130 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:47:28.130 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:47:44.129 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:47:44.129 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:47:44.129 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:53:22.550 +03:30 [INF] the Di Container is created!
+2022-02-06 21:53:22.638 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:53:31.212 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:53:38.402 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:53:38.402 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:53:38.402 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:53:39.633 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:53:39.637 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:53:39.637 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:53:39.637 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:53:55.615 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:53:55.615 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:53:55.615 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:54:11.609 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:54:11.610 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:54:11.610 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:54:32.732 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:54:49.234 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 5 time.
+2022-02-06 21:54:50.318 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:54:51.842 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:54:59.550 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 6 time.
+2022-02-06 21:54:59.946 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:55:02.816 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:55:02.816 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 7 time.
+2022-02-06 21:55:02.816 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:56:42.620 +03:30 [INF] the Di Container is created!
+2022-02-06 21:56:42.663 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:56:43.756 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:56:50.516 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:56:50.517 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:56:50.517 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:56:50.517 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:56:59.782 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:56:59.782 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:56:59.783 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:57:15.761 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:57:15.761 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:57:15.761 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:58:24.213 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 21:58:25.463 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:58:28.998 +03:30 [INF] user information was got from the crm api
+2022-02-06 21:58:28.998 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 21:58:28.998 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:58:28.998 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 21:58:41.462 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:58:41.462 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 21:58:41.462 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:58:57.463 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:58:57.463 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 3 time.
+2022-02-06 21:58:57.463 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:59:13.463 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:59:13.464 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 4 time.
+2022-02-06 21:59:13.464 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:59:29.463 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:59:29.463 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 5 time.
+2022-02-06 21:59:29.463 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 21:59:45.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 21:59:45.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 6 time.
+2022-02-06 21:59:45.475 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:00:01.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:00:01.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 7 time.
+2022-02-06 22:00:01.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:00:17.466 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:00:17.466 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 8 time.
+2022-02-06 22:00:17.467 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:00:33.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:00:33.476 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 9 time.
+2022-02-06 22:00:33.476 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:00:49.470 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:00:49.471 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 10 time.
+2022-02-06 22:00:49.471 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:01:05.471 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:01:05.472 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 11 time.
+2022-02-06 22:01:05.472 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:01:21.466 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:01:21.466 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 12 time.
+2022-02-06 22:01:21.466 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:01:37.466 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:01:37.467 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 13 time.
+2022-02-06 22:01:37.467 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:01:53.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:01:53.476 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 14 time.
+2022-02-06 22:01:53.476 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:02:09.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:02:09.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 15 time.
+2022-02-06 22:02:09.476 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:02:25.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:02:25.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 16 time.
+2022-02-06 22:02:25.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:02:41.473 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:02:41.474 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 17 time.
+2022-02-06 22:02:41.474 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:02:57.467 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:02:57.469 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 18 time.
+2022-02-06 22:02:57.469 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:03:13.465 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:03:13.465 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 19 time.
+2022-02-06 22:03:13.468 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:03:29.465 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:03:29.465 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 20 time.
+2022-02-06 22:03:29.465 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:03:45.464 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:03:45.465 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 21 time.
+2022-02-06 22:03:45.465 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:04:01.471 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:04:01.471 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 22 time.
+2022-02-06 22:04:01.471 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:04:17.465 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:04:17.465 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 23 time.
+2022-02-06 22:04:17.465 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:04:33.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:04:33.462 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 24 time.
+2022-02-06 22:04:33.462 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:04:49.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:04:49.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 25 time.
+2022-02-06 22:04:49.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:05:05.472 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:05:05.473 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 26 time.
+2022-02-06 22:05:05.473 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:05:21.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:05:21.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 27 time.
+2022-02-06 22:05:21.476 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:05:37.473 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:05:37.474 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 28 time.
+2022-02-06 22:05:37.474 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:05:53.480 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:05:53.480 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 29 time.
+2022-02-06 22:05:53.480 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:06:09.461 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:06:09.461 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 30 time.
+2022-02-06 22:06:09.461 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:06:25.474 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:06:25.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 31 time.
+2022-02-06 22:06:25.475 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:06:41.473 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:06:41.473 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 32 time.
+2022-02-06 22:06:41.473 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:06:57.474 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:06:57.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 33 time.
+2022-02-06 22:06:57.475 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:07:13.475 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:07:13.475 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 34 time.
+2022-02-06 22:07:13.475 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:49:52.251 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 22:49:53.743 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 22:50:54.537 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 22:50:55.766 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 22:52:18.477 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-06 22:52:19.975 +03:30 [INF] waited for user enter the ex-force for closeing the application
+2022-02-06 22:52:52.984 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:52:57.954 +03:30 [INF] user information was got from the crm api
+2022-02-06 22:52:57.954 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 1 time.
+2022-02-06 22:52:57.954 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-06 22:53:25.996 +03:30 [INF] Application Successfuly Initialized the Requirement!
+2022-02-06 22:53:25.997 +03:30 [INF] Waiting Time Is Finished 
+ while loop start for 2 time.
+2022-02-06 22:53:25.997 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic

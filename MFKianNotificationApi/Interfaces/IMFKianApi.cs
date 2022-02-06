@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MFKianNotificationApi.Interfaces
 {
-    public interface IMFKianApi
+    public interface IMFKianApi:IDisposable
     {
         AppModel ApplicationSetting { get; }
         Task SendNotification(List<TasksModel> dataModel, NotificationFilterModel filterModel);

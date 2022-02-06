@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {}
+    "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
+    "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "projectUniqueName": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
         "projectName": "MFKianNotificationApi",
-        "projectPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
-        "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Notification-NewVersion\\MFKianNotificationApi\\obj\\",
+        "projectPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\MFKianNotificationApi.csproj",
+        "packagesPath": "C:\\Users\\Amir_\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\FinialProjectNotitfication\\NotificationSystemApp\\MFKianNotificationApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a.moradi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Amir_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
