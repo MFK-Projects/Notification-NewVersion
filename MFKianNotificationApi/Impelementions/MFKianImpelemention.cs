@@ -3,12 +3,12 @@ using MFKianNotificationApi.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
-
+using System.Xml.Serialization;
 
 namespace MFKianNotificationApi.Impelementions
 {
@@ -16,6 +16,8 @@ namespace MFKianNotificationApi.Impelementions
     {
 
         private readonly ILogger<MFKianImpelemention> _logger;
+        private bool _disposed = false;
+        private ApplicationSettingModel _applicationSetting;
 
         public MFKianImpelemention(ILogger<MFKianImpelemention> logger)
         {
@@ -23,12 +25,21 @@ namespace MFKianNotificationApi.Impelementions
         }
 
 
-        public AppModel ApplicationSetting => throw new NotImplementedException();
-
-        public void Dispose()
+        public ApplicationSettingModel ApplicationSetting
         {
-            throw new NotImplementedException();
+            get
+            {
+                if (_applicationSetting == null)
+                {
+                    _logger.LogError($"{typeof(ApplicationSettingModel)} can not created or get data from the setting.xml");
+                    throw new NullReferenceException("the application Setting is null");
+                }
+
+                return _applicationSetting;
+            }
         }
+
+
 
         public List<TasksModel> GetMultipuleRows(RequestModel model)
         {
@@ -50,7 +61,7 @@ namespace MFKianNotificationApi.Impelementions
             throw new NotImplementedException();
         }
 
-        public bool SetApiSetting(MFKianNotificationApi.Models.ApplicationSettingModel model)
+        public ApplicationSettingModel SetApiSetting(MFKianNotificationApi.Models.ApplicationSettingModel model)
         {
             if (model == null)
                 throw new ArgumentException($"{typeof(ApplicationSettingModel)} dose not have value!");
@@ -58,31 +69,68 @@ namespace MFKianNotificationApi.Impelementions
 
             try
             {
-
-                var filepath = Environment.CurrentDirectory + @"\appsetting.xml";
-
-
-                using var xmlWriter = XmlWriter.Create(filepath);
-
-                xmlWriter.WriteStartElement("Setting");
-                xmlWriter.WriteElementString(nameof(model.TimeCount), model.TimeCount.ToString());
-                xmlWriter.WriteElementString(nameof(model.Path), model.Path);
-                xmlWriter.WriteElementString(nameof(model.SendCount), model.SendCount.ToString());
-                xmlWriter.WriteElementString(nameof(model.TaskPriorityTime), model.TaskPriorityTime.ToString());
-                xmlWriter.WriteStartElement("Credential");
-                xmlWriter.WriteElementString(nameof(model.CredentialModel.UserName), model.CredentialModel.UserName);
-                xmlWriter.WriteElementString(nameof(model.CredentialModel.Password), model.CredentialModel.Password);
-                xmlWriter.WriteElementString(nameof(model.CredentialModel.Domain), model.CredentialModel.Domain);
-                xmlWriter.WriteEndElement();
-                xmlWriter.WriteEndElement();
-                return true;
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ApplicationSettingModel));
+                TextWriter writer = new StreamWriter(GetSettingFilePath());
+                
+                return model;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return false;
+                return null;
             }
 
+        }
+
+
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool dispose)
+        {
+            if (_disposed)
+                return;
+
+            if (dispose)
+            {
+
+            }
+
+            _disposed = true;
+        }
+
+        private async Task<ApplicationSettingModel> GetSetting()
+        {
+            try
+            {
+                if (System.IO.File.Exists(GetSettingFilePath()))
+                {
+                    using var xmlReader = XmlReader.Create(GetSettingFilePath());
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        private static string GetSettingFilePath()
+        {
+            return Environment.CurrentDirectory + @"\appsetting.xml";
+        }
+
+        bool IMfkianApiSencondVersion.SetApiSetting(ApplicationSettingModel model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

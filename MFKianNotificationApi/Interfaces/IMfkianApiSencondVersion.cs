@@ -8,7 +8,7 @@ namespace MFKianNotificationApi.Interfaces
 {
     public interface IMfkianApiSencondVersion:IDisposable
     {
-        AppModel ApplicationSetting { get; }
+        ApplicationSettingModel ApplicationSetting { get; }
         Task SendNotification(List<TasksModel> dataModel, NotificationFilterModel filterModel);
         bool SetApiSetting(ApplicationSettingModel model);
         List<UserModel> GetSingleRow(RequestModel model);
