@@ -10,6 +10,6 @@ namespace MFKIanApi.Interfaces
     public interface INotificationApi:IDisposable
     {
         void SetApplicationSetting(ApplicationSetting settingModel);
-        void SendNotification();
+        Task SendNotification(List<TasksModel> taskModels, NotificationFilterModel filterMode);
     }
 }
