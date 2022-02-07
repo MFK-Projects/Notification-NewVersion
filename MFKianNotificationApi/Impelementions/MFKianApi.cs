@@ -137,7 +137,7 @@ namespace MFKianNotificationApi.Impelementions
             var toast = new ToastContentBuilder();
 
             toast.AddText("نرم افزار ارسال نوتیفیکشن با موفیت ست شد")
-                .SetProtocolActivation(new Uri(@"http://80.210.16.4:8585/MFkian/api/data/v9.0//MFkian/main.aspx?"))
+                .SetProtocolActivation(new Uri(@"http://crm-srv:8585/MFkian/main.aspx?"))
                 .Show();
 
 
@@ -156,7 +156,7 @@ namespace MFKianNotificationApi.Impelementions
 
             try
             {
-                var url = @"http://80.210.16.4:8585/MFkian/api/data/v9.0/" + UrlBuilder(new RequestDataModel { Count = 3, EnttiyName = "new_notification_systems", Filters = null, SelectItem = new string[] { "new_entity_name", "new_notification_message", "new_notification_systemid", "new_setting_timer", "new_task_status", "new_task_types", "new_time_awaited" } });
+                var url = @"http://crm-srv:8585/MFkian/api/data/v9.0/" + UrlBuilder(new RequestDataModel { Count = 3, EnttiyName = "new_notification_systems", Filters = null, SelectItem = new string[] { "new_entity_name", "new_notification_message", "new_notification_systemid", "new_setting_timer", "new_task_status", "new_task_types", "new_time_awaited" } });
 
 
                 var _stringdata = SendHttpRequest(new CredentialModel { Domain = "KIAN", Password = "r", UserName = "a.moradi" }, url);
@@ -193,7 +193,7 @@ namespace MFKianNotificationApi.Impelementions
             }
 
         }
-
+        
         /// <summary>
         ///Create Url for Sending http Request
         /// </summary>
@@ -251,7 +251,7 @@ namespace MFKianNotificationApi.Impelementions
                 throw new ArgumentNullException($"{typeof(CrmTaskUrl)} is null while passing to TaskUrlBuilder.... the EntityName or EntityId is Null");
 
 
-            return @"http://80.210.16.4:8585/MFkian/main.aspx?etn=" + crmTaskUrl.EntityName + "&id={" + crmTaskUrl.EntityId + "}&pagetype=entityrecord#";
+            return @"http://crm-srv:8585/MFkian/main.aspx?etn=" + crmTaskUrl.EntityName + "&id={" + crmTaskUrl.EntityId + "}&pagetype=entityrecord#";
         }
 
         /// <summary>
@@ -260,7 +260,7 @@ namespace MFKianNotificationApi.Impelementions
         /// <param name="setting">specified the toast </param>
         /// <exception cref="ArgumentNullException"> return the nullArugmentException</exception>
         private void ToastCreationFilter(NotificationCreationModel setting)
-        {
+         {
 
             if (setting == null)
                 throw new ArgumentNullException($"{typeof(NotificationCreationModel)} is null while passing it to Toast Creation Filter");
@@ -281,7 +281,7 @@ namespace MFKianNotificationApi.Impelementions
 
 
             if (!string.IsNullOrEmpty(setting.TaskUrl))
-                toast.SetProtocolActivation(new System.Uri(@"http://crm-srv:8585/" + setting.TaskUrl));
+                toast.SetProtocolActivation(new System.Uri(setting.TaskUrl));
 
 
             toast.Show();

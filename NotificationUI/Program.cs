@@ -334,8 +334,6 @@ namespace NotificationUI
             return System.DirectoryServices.AccountManagement.UserPrincipal.Current.UserPrincipalName;
         }
 
-
-
         public static string CreateUserDomain(string name)
         {
             if (name.Contains(@"KIAN\"))

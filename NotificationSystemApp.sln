@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E1137D1B-AAC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MFKianNotificationApi", "MFKianNotificationApi\MFKianNotificationApi.csproj", "{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationUI", "NotificationUI\NotificationUI.csproj", "{3F3013BD-73E7-4376-AC20-6754915D4342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRMNotification", "NotificationUI\CRMNotification.csproj", "{3F3013BD-73E7-4376-AC20-6754915D4342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmNotificationXmlUi", "CrmNotificationXmlUi\CrmNotificationXmlUi.csproj", "{A30BF9E2-D33D-45D7-B586-F115041A8B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{3F3013BD-73E7-4376-AC20-6754915D4342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3013BD-73E7-4376-AC20-6754915D4342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3013BD-73E7-4376-AC20-6754915D4342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A30BF9E2-D33D-45D7-B586-F115041A8B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30BF9E2-D33D-45D7-B586-F115041A8B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30BF9E2-D33D-45D7-B586-F115041A8B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30BF9E2-D33D-45D7-B586-F115041A8B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2B8C7B30-5E6F-4484-9A71-8822C8C5CACE} = {E1137D1B-AACB-4553-B8E1-863CB3D2C029}
 		{3F3013BD-73E7-4376-AC20-6754915D4342} = {E1137D1B-AACB-4553-B8E1-863CB3D2C029}
+		{A30BF9E2-D33D-45D7-B586-F115041A8B59} = {E1137D1B-AACB-4553-B8E1-863CB3D2C029}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC896709-64AC-4DC9-9953-D996DAD90A9D}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jYQz9k7qYcDTlz7W5y9OjKPGDOWtp87x1Q26RfKsb8AlBXQRapC1J7P6Lq50XHRmVeagApLxbZ1zQZk/sHmqsQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\Notification-NewVersion\\CrmNotificationXmlUi\\CrmNotificationXmlUi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\a.moradi\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.22\\microsoft.windows.sdk.net.ref.10.0.17763.22.nupkg.sha512"
+  ],
+  "logs": []
+}

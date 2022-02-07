@@ -29,4 +29,14 @@ namespace MFKianNotificationApi.Models
         public long[] NTasksStatus { get; set; }
     }
 
+
+    public class ApplicationSettingModel
+    {
+        public string Path { get; set; }
+        public byte SendCount { get; set; }
+        public byte TimeCount { get; set; }
+        public CredentialModel CredentialModel { get; set; }
+        public byte 
+    }
+
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lIDJN5/wJguTIZABVZAKcohu0Nu8dhKcrGYHx98Vq9aXBu4o30YrM6kogdTa2MhAzHT/229PAfa7ZQRXy/xaFg==",
+  "dgSpecHash": "R60AH7R00rHOqRCOWlSdEJNv9csRizOQmv/zQI8ZYas97noJhLLhswfrCEucD7KEyVPV0y/QPmHqrPdxLguecw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
+  "projectFilePath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\CRMNotification.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a.moradi\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.2\\microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512",
     "C:\\Users\\a.moradi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",

@@ -1140,9 +1140,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
-      "projectName": "NotificationUI",
-      "projectPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\NotificationUI.csproj",
+      "projectUniqueName": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\CRMNotification.csproj",
+      "projectName": "CRMNotification",
+      "projectPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\CRMNotification.csproj",
       "packagesPath": "C:\\Users\\a.moradi\\.nuget\\packages\\",
       "outputPath": "D:\\Projects\\Notification-NewVersion\\NotificationUI\\obj\\",
       "projectStyle": "PackageReference",
