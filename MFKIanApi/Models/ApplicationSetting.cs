@@ -18,6 +18,7 @@ namespace MFKIanApi.Models
         /// <summary>
         /// 
         /// </summary>
+        public string RequestBaseUrl { get; set; }
         public double TaskDurationTime { get; set; }
         public string NotificationReqularMessage { get; set; }
         public string BaseApiUrl { get; set; }

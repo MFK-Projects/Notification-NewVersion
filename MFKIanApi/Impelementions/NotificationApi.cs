@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -88,7 +89,7 @@ namespace MFKIanApi.Impelementions
             {
 
                 Button = creationModel.Button,
-                TaskUrl =creationModel.TaskUrl,
+                TaskUrl = creationModel.TaskUrl,
                 Text = creationModel.Text,
                 Titel = creationModel.Titel,
                 ToastDuration = creationModel.ToastDuration,
@@ -285,6 +286,77 @@ namespace MFKIanApi.Impelementions
         }
 
 
-        #endregion
+
+        private string SendHttpRequest(string Url)
+        {
+
+            if (string.IsNullOrEmpty(Url))
+                throw new ArgumentNullException($" an exception is ouccred in : {nameof(SendHttpRequest)} paramter type of {typeof(string)} name : {nameof(Url)} is empty");
+
+            var _client = new WebClient();
+
+            try
+            {
+                _client.Credentials = new NetworkCredential(ApplicationSettings.UserName, ApplicationSettings.Password, ApplicationSettings.Domain);
+                _client.Headers.Add("OData-Version", "4.0");
+                _client.Headers.Add("OData-Version", "4.0");
+
+                if (Url.Contains("&Count"))
+                    _client.Headers.Add("content-type", "application/json");
+
+
+                var data = _client.DownloadString(new Uri(Url));
+
+                return data;
+            }
+            catch
+            {
+                throw new Exception("SendHttpRequest Thrown Exception");
+            }
+            finally
+            {
+                _client?.Dispose();
+            }
+
+            #endregion
+        }
+
+        private string UrlBuilder(RequestModel request)
+        {
+            if (request == null)
+                throw new ArgumentNullException($"an exception is occured in {nameof(UrlBuilder)} for sending null paramter typeof {typeof(RequestModel)} \n {request.ToString()}");
+
+
+            var url = ApplicationSettings.BaseApiUrl + request.Url + request.RequestEntityName;
+
+            if (request.SelectItem == null)
+                throw new ArgumentException($"{request.SelectItem} is null while passing into the UrlBuilder");
+
+            if (request.SelectItem.Length > 0)
+            {
+                url += @"?$select=";
+
+                for (int i = 0; i < request.SelectItem.Length; i++)
+                {
+                    if (i == request.SelectItem.Length - 1)
+                        url += request.SelectItem[i];
+                    else
+                        url += request.SelectItem[i] + ",";
+                }
+            }
+
+            if (request.Filters != null)
+                if (request.Filters.Count > 0)
+                {
+                    url += @"&$filter=";
+                    foreach (var item in request.Filters)
+                        if (item.Type == Enums.RequestFiltersType.Content)
+                            url += "  " + item.Item + " " + item.Key + " '" + item.Value + "'";
+                        else if (item.Type == Enums.RequestFiltersType.UniqIdentifire || item.Type == Enums.RequestFiltersType.Number)
+                            url += "  " + item.Item + " " + item.Key + " " + item.Value;
+                }
+
+            return url;
+        }
     }
 }
