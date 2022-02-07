@@ -18,3 +18,38 @@
 2022-02-07 00:05:30.063 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
 2022-02-07 00:05:32.094 +03:30 [INF] user information was got from the crm api
 2022-02-07 00:05:32.094 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:28:03.783 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 08:28:08.141 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:28:16.841 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:28:16.842 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:28:23.176 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:28:26.408 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:28:26.408 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:28:38.140 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:28:41.306 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:28:41.306 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:28:53.148 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:28:56.339 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:28:56.339 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:29:09.217 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:29:12.602 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:29:12.602 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:29:23.151 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:29:26.328 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:29:26.329 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:29:40.156 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:29:43.359 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:29:43.359 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:29:53.162 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:29:56.518 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:29:56.518 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:31:46.919 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 08:31:49.318 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:31:52.753 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:31:52.753 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:33:12.358 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 08:33:13.863 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
+2022-02-07 08:34:39.871 +03:30 [INF] user information was got from the crm api
+2022-02-07 08:34:39.871 +03:30 [INF] ------------------------------------------------------------------------------------------------------------------- end of application logic
+2022-02-07 08:35:48.495 +03:30 [INF] the mfkian api servcice initialzied 
+2022-02-07 08:35:50.132 +03:30 [INF] Start of the AppTimer_Elapsed Logic!
