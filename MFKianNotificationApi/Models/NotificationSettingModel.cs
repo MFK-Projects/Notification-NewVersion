@@ -23,14 +23,6 @@ namespace MFKianNotificationApi.Models
     }
 
 
-    public class ApplicationSettingModel
-    {
-        public TimeSpan DelayBetweenRequests { get; set; }  
-        public string ApplicationName { get; set; }
-        public ConsoleColor ConsoleColor { get; set; }
-        public bool CloseApp { get; set; }
-        public bool ExitFunctionality { get; set; }
-    }
 
     public class RequestDataModel
     {

@@ -36,7 +36,8 @@ namespace MFKianNotificationApi.Models
         public byte SendCount { get; set; }
         public byte TimeCount { get; set; }
         public CredentialModel CredentialModel { get; set; }
-        public byte 
+        public byte TaskPriorityTime { get; set; }
+
     }
 
 }

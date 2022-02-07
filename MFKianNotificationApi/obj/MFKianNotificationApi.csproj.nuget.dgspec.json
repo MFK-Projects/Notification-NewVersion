@@ -40,6 +40,10 @@
         "net5.0-windows10.0.17763": {
           "targetAlias": "net5.0-windows10.0.17763.0",
           "dependencies": {
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.Toolkit.Uwp.Notifications": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -47,6 +51,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.10.0, )"
             },
             "System.DirectoryServices.AccountManagement": {
               "target": "Package",
