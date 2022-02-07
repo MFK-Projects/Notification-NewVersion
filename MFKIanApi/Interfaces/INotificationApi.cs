@@ -10,5 +10,6 @@ namespace MFKIanApi.Interfaces
     public interface INotificationApi:IDisposable
     {
         void SetApplicationSetting(ApplicationSetting settingModel);
+        void SendNotification();
     }
 }

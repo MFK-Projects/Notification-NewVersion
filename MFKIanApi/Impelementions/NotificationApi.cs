@@ -23,6 +23,9 @@ namespace MFKIanApi.Impelementions
             _logger = logger;
         }
 
+
+
+
         public void SetApplicationSetting(ApplicationSetting settingModel)
         {
             try
@@ -43,15 +46,11 @@ namespace MFKIanApi.Impelementions
                 _logger.LogError($"error while excuting this method {nameof(SetApplicationSetting)} error message :{ex.Message} \n inner Exception : {ex.InnerException?.Message}");
             }
         }
-
-
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-
         private static string GetSettingFilePath()
         {
             try

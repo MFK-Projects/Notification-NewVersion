@@ -1,5 +1,4 @@
 ﻿using Microsoft.Toolkit.Uwp.Notifications;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +20,6 @@ namespace MFKIanApi.Models
         public ToastScenario ToastScenario { get; set; }
         public ToastDuration ToastDuration { get; set; } 
     }
+
 
 }
