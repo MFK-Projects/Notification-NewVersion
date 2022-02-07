@@ -81,6 +81,23 @@ namespace MFKIanApi.Impelementions
             return Task.CompletedTask;
         }
 
+
+        public Task SendNotification(NotificationCreationModel creationModel)
+        {
+            ToastCreator(new NotificationCreationModel
+            {
+
+                Button = creationModel.Button,
+                TaskUrl =creationModel.TaskUrl,
+                Text = creationModel.Text,
+                Titel = creationModel.Titel,
+                ToastDuration = creationModel.ToastDuration,
+                ToastScenario = creationModel.ToastScenario
+            });
+            return Task.CompletedTask;
+        }
+
+
         /// <summary>
         /// Create url to for Toast Notification
         /// </summary>
@@ -266,6 +283,7 @@ namespace MFKIanApi.Impelementions
 
             return false;
         }
+
 
         #endregion
     }
