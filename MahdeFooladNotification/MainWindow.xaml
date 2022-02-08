@@ -4,15 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MahdeFooladNotification"
+        xmlns:uc="clr-namespace:MahdeFooladNotification.UserControls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         WindowState="Normal"
-        Title="ارسال نوتیکفیشن" Height="200" Width="460">
+        Title="ارسال نوتیکفیشن" Height="200" Width="480">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -23,7 +24,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-               
+
                 <StackPanel Orientation="Horizontal">
                     <Button Content="minimized"/>
                     <Button Content="خروج" />
@@ -39,16 +40,24 @@
 
         </StackPanel>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
 
+        <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" >
+            <uc:CurentTsakControl Height="90" Width="400" />
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Button  Margin="0 10 0 10"/>
+                <Button/>
+            </StackPanel>
+        </StackPanel>
+
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Width="30"/>
-            <Button Width="30"/>
+            <Button Width="30" Margin="10 0 10 0"/>
             <Button Width="30"/>
         </StackPanel>
     </Grid>
