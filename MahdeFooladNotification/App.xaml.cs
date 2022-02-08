@@ -15,7 +15,8 @@ namespace MahdeFooladNotification
     {
         private void Application_Started(object sender ,StartupEventArgs e)
         {
-
+            MainWindow main = new MainWindow();
+            main.Show();
         }
     }
 }
