@@ -8,6 +8,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

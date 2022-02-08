@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Uwp.Notifications;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -130,7 +131,41 @@ namespace MFKIanApi.Impelementions
             });
             return Task.CompletedTask;
         }
+        private static string CheckCurentUserName(string UserName)
+        {
 
+            if (UserName.Contains(@"KIAN\"))
+                return UserName;
+            else if (UserName.Contains("@"))
+                return @"KIAN\" + UserName.Split("@")[0];
+
+            return string.Empty;
+        }
+        private static string GetCurentWindowsUser()
+        {
+            try { return CheckCurentUserName(System.DirectoryServices.AccountManagement.UserPrincipal.Current.UserPrincipalName);}
+            catch { throw new Exception("Can not get the curentusername of this os "); }
+        }
+        public Task<bool> CheckUserCerdential(string passwrod)
+        {
+            try
+            {
+                using var windowUser = new System.DirectoryServices.AccountManagement.PrincipalContext(ContextType.Domain);
+                var reulst = windowUser.ValidateCredentials(ApplicationSettings.UserName, passwrod);
+
+
+                if (reulst)
+                    return Task.FromResult(true);
+                else
+                    return Task.FromResult(false);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"error while validateing the curent user password and username detail of the error : {ex.Message} inner exception : {ex.InnerException?.Message ?? "there is no inner exception"}");
+            }
+        }
 
         #region Private Methods
 
@@ -285,6 +320,7 @@ namespace MFKIanApi.Impelementions
             if (dispose)
             {
                 _logger.LogInformation("this object is disposed");
+                _applicationSetting = null;
             }
 
             _disposed = true;

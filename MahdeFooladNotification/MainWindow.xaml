@@ -5,11 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MahdeFooladNotification"
         xmlns:uc="clr-namespace:MahdeFooladNotification.UserControls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         WindowState="Normal"
+        ResizeMode="NoResize"
         Title="ارسال نوتیکفیشن" Height="200" Width="480">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Sego UI"/>
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+    </Window.Resources>
+    
+    
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -26,16 +38,27 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="minimized" Width="65"/>
-                    <Button Content="خروج" />
+
+                    <Button BorderBrush="Transparent" Background="DarkRed">
+                        <Button.Content>
+                            <materialDesign:PackIcon Kind="CancelBox" />
+                        </Button.Content>
+                    </Button>
+                 
+                    <Button Background="Gray" BorderBrush="Transparent">
+                        <Button.Content>
+                            <materialDesign:PackIcon Kind="WindowMinimize"/>
+                        </Button.Content>
+                    </Button>
+
                 </StackPanel>
                 <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black">
                     <Label.Content>
-                        <TextBlock Text="logo"/>
+                        <materialDesign:PackIcon Kind="Notifications" Foreground="DarkRed"/>
                         <!--<Image/>-->
                     </Label.Content>
                 </Label>
-                <TextBlock Margin="0 0 10 0" Grid.Column="1" Text="نرم افزار اسال نوتیکفیشکن" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="Gray" Margin="0 0 10 0" Grid.Column="1" Text="نرم افزار اسال نوتیکفیشکن" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
             </Grid>
 
         </StackPanel>
@@ -50,15 +73,40 @@
         <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" >
             <uc:CurentTsakControl Height="90" Width="400" />
             <StackPanel Orientation="Vertical" Margin="10">
-                <Button  Margin="0 10 0 10"/>
-                <Button/>
+                <Button  HorizontalContentAlignment="Center">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="ViewList"/>
+                    </Button.Content>
+                </Button>
+
+
+                <Button Background="DarkRed" BorderBrush="Transparent" Margin="0 10 0 0" HorizontalContentAlignment="Center">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="Cancel"/>
+                    </Button.Content>
+                </Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Width="30"/>
-            <Button Width="30" Margin="10 0 10 0"/>
-            <Button Width="30"/>
+            <Button Background="#395B64">
+                <Button.Content>
+                    <materialDesign:PackIcon Kind="Settings"/>
+                </Button.Content>
+            </Button>
+
+
+            <Button Margin="10 0 10 0" Background="#BB6464" BorderBrush="Transparent">
+                <Button.Content>
+                    <materialDesign:PackIcon Kind="Factory"/>
+                </Button.Content>
+            </Button>
+
+            <!--<Button Background="#CDB699" BorderBrush="Transparent" >
+                <Button.Content>
+                    <materialDesign:PackIcon Kind="Settings" Foreground="DarkRed"/>
+                </Button.Content>
+            </Button>-->
         </StackPanel>
     </Grid>
 
