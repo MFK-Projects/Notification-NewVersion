@@ -23,5 +23,6 @@ namespace MahdeFooladNotification.Windows
         {
             InitializeComponent();
         }
+
     }
 }
