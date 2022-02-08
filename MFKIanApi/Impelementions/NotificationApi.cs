@@ -17,7 +17,6 @@ namespace MFKIanApi.Impelementions
 {
     public class NotificationApi : INotificationApi
     {
-
         private bool _disposed = false;
         private ILogger<NotificationApi> _logger;
         private ApplicationSetting _applicationSetting;
@@ -31,13 +30,10 @@ namespace MFKIanApi.Impelementions
                 return _applicationSetting;
             }
         }
-
         public NotificationApi(ILogger<NotificationApi> logger)
         {
             _logger = logger;
         }
-
-
         public void SetApplicationSetting(ApplicationSetting settingModel)
         {
             try
@@ -81,8 +77,45 @@ namespace MFKIanApi.Impelementions
 
             return Task.CompletedTask;
         }
+        public List<TasksModel> GetMultipuleRow(RequestModel model)
+        {
+            try
+            {
+                var url = UrlBuilder(model);
 
 
+                var _stringData = SendHttpRequest(url);
+
+                var formatedData = JsonConvert.DeserializeObject<RootModel<TasksModel>>(_stringData);
+
+                return formatedData.Values;
+            }
+            catch
+            {
+                throw new Exception("GetTask Data Thrown an Exception");
+            }
+        }
+
+        public UserModel GetSingleRow(RequestModel model)
+        {
+            try
+            {
+                var url = UrlBuilder(model);
+
+                var _stringData = SendHttpRequest(url);
+                var formatedData = JsonConvert.DeserializeObject<RootModel<UserModel>>(_stringData);
+
+                if (formatedData.Values.Count > 1)
+                    throw new NullReferenceException($" there are more than one record for :{model.RequestEntityName} with this {url}", null);
+
+
+                return formatedData.Values;
+            }
+            catch
+            {
+                throw new Exception("GetUserData thrown an Exception");
+            }
+        }
         public Task SendNotification(NotificationCreationModel creationModel)
         {
             ToastCreator(new NotificationCreationModel
@@ -98,6 +131,8 @@ namespace MFKIanApi.Impelementions
             return Task.CompletedTask;
         }
 
+
+        #region Private Methods
 
         /// <summary>
         /// Create url to for Toast Notification
@@ -207,6 +242,45 @@ namespace MFKIanApi.Impelementions
 
         }
 
+
+        private string UrlBuilder(RequestModel request)
+        {
+            if (request == null)
+                throw new ArgumentNullException($"an exception is occured in {nameof(UrlBuilder)} for sending null paramter typeof {typeof(RequestModel)} \n {request.ToString()}");
+
+
+            var url = ApplicationSettings.BaseApiUrl + request.Url + request.RequestEntityName;
+
+            if (request.SelectItem == null)
+                throw new ArgumentException($"{request.SelectItem} is null while passing into the UrlBuilder");
+
+            if (request.SelectItem.Length > 0)
+            {
+                url += @"?$select=";
+
+                for (int i = 0; i < request.SelectItem.Length; i++)
+                {
+                    if (i == request.SelectItem.Length - 1)
+                        url += request.SelectItem[i];
+                    else
+                        url += request.SelectItem[i] + ",";
+                }
+            }
+
+            if (request.Filters != null)
+                if (request.Filters.Count > 0)
+                {
+                    url += @"&$filter=";
+                    foreach (var item in request.Filters)
+                        if (item.Type == Enums.RequestFiltersType.Content)
+                            url += "  " + item.Item + " " + item.Key + " '" + item.Value + "'";
+                        else if (item.Type == Enums.RequestFiltersType.UniqIdentifire || item.Type == Enums.RequestFiltersType.Number)
+                            url += "  " + item.Item + " " + item.Key + " " + item.Value;
+                }
+
+            return url;
+        }
+
         protected virtual void Dispose(bool dispose)
         {
             if (_disposed) return;
@@ -218,6 +292,7 @@ namespace MFKIanApi.Impelementions
             _disposed = true;
         }
 
+        #endregion
 
         #region Check Tasks Status Logic
 
@@ -319,44 +394,6 @@ namespace MFKIanApi.Impelementions
             }
 
             #endregion
-        }
-
-        private string UrlBuilder(RequestModel request)
-        {
-            if (request == null)
-                throw new ArgumentNullException($"an exception is occured in {nameof(UrlBuilder)} for sending null paramter typeof {typeof(RequestModel)} \n {request.ToString()}");
-
-
-            var url = ApplicationSettings.BaseApiUrl + request.Url + request.RequestEntityName;
-
-            if (request.SelectItem == null)
-                throw new ArgumentException($"{request.SelectItem} is null while passing into the UrlBuilder");
-
-            if (request.SelectItem.Length > 0)
-            {
-                url += @"?$select=";
-
-                for (int i = 0; i < request.SelectItem.Length; i++)
-                {
-                    if (i == request.SelectItem.Length - 1)
-                        url += request.SelectItem[i];
-                    else
-                        url += request.SelectItem[i] + ",";
-                }
-            }
-
-            if (request.Filters != null)
-                if (request.Filters.Count > 0)
-                {
-                    url += @"&$filter=";
-                    foreach (var item in request.Filters)
-                        if (item.Type == Enums.RequestFiltersType.Content)
-                            url += "  " + item.Item + " " + item.Key + " '" + item.Value + "'";
-                        else if (item.Type == Enums.RequestFiltersType.UniqIdentifire || item.Type == Enums.RequestFiltersType.Number)
-                            url += "  " + item.Item + " " + item.Key + " " + item.Value;
-                }
-
-            return url;
         }
     }
 }

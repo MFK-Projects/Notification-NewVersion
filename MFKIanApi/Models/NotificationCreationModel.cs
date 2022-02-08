@@ -15,4 +15,14 @@ namespace MFKIanApi.Models
     }
 
 
+    public class UserModel
+    {
+        public string Domainname { get; set; }
+        public string Fullname { get; set; }
+        public int Identityid { get; set; }
+        public string Systemuserid { get; set; }
+        public string Ownerid { get; set; }
+    }
+
+
 }

@@ -12,6 +12,8 @@ namespace MFKIanApi.Interfaces
         void SetApplicationSetting(ApplicationSetting settingModel);
         Task SendNotification(List<TasksModel> taskModels, NotificationFilterModel filterMode);
         Task SendNotification(NotificationCreationModel creationModel);
+        List<TasksModel> GetMultipuleRow(RequestModel model);
+        UserModel GetSingleRow(RequestModel model);
         
     }
 }
