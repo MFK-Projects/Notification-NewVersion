@@ -22,6 +22,9 @@ namespace MahdeFooladNotification.ViewModels
         public ICommand SetSetting { get; }
         public ICommand ChangeTask { get; }
 
+
+
+
         private TasksModel _taskModel;
         public TasksModel TasksModel
         {
@@ -31,7 +34,7 @@ namespace MahdeFooladNotification.ViewModels
             }
             set
             {
-                if (TasksModel.activityid != value.activityid)
+                if (TasksModel != value)
                 {
                     _taskModel = value;
                     OnPropertyChanged(nameof(TasksModel));

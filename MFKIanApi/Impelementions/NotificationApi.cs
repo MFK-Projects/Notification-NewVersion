@@ -176,8 +176,6 @@ namespace MFKIanApi.Impelementions
 
             toast.Show();
             Thread.Sleep(3000);
-
-            toast = null;
         }
 
         private static string GetSettingFilePath()

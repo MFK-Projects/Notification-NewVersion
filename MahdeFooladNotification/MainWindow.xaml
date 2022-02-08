@@ -26,7 +26,7 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="minimized"/>
+                    <Button Content="minimized" Width="65"/>
                     <Button Content="خروج" />
                 </StackPanel>
                 <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black">
