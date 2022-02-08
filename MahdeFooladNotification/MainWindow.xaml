@@ -28,7 +28,13 @@
                     <Button Content="minimized"/>
                     <Button Content="خروج" />
                 </StackPanel>
-                <TextBlock Grid.Column="1" Text="نرم افزار اسال نوتیکفیشکن" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black">
+                    <Label.Content>
+                        <TextBlock Text="logo"/>
+                        <!--<Image/>-->
+                    </Label.Content>
+                </Label>
+                <TextBlock Margin="0 0 10 0" Grid.Column="1" Text="نرم افزار اسال نوتیکفیشکن" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
             </Grid>
 
         </StackPanel>
