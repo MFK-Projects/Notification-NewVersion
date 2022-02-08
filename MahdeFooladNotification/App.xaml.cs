@@ -13,5 +13,9 @@ namespace MahdeFooladNotification
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Started(object sender ,StartupEventArgs e)
+        {
+
+        }
     }
 }

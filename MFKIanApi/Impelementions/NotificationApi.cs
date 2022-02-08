@@ -109,7 +109,7 @@ namespace MFKIanApi.Impelementions
                     throw new NullReferenceException($" there are more than one record for :{model.RequestEntityName} with this {url}", null);
 
 
-                return formatedData.Values;
+                return formatedData.Values.FirstOrDefault();
             }
             catch
             {
